@@ -53,7 +53,7 @@ namespace GB
             }
         }
 
-        public void UnloadAll()
+        public void UnLoadAll()
         {
             if(entitiesHandle.IsValid())
             {
@@ -70,6 +70,12 @@ namespace GB
         public GameObject Entity_GetRole()
         {
             entities.TryGetValue("Entity_Role", out GameObject entity);
+            return entity;
+        }
+
+        public GameObject Entity_GetMap(int stageID)
+        {
+            entities.TryGetValue("Entity_Map_" + stageID, out GameObject entity);
             return entity;
         }
 

@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5834b5087d578d24c926ce20cd31e6d6, type: 3}
-  m_Name: Panel_ContentUpdateGroupSchema
+  m_Script: {fileID: 11500000, guid: b5ccdafbb9a8d2e40876f4d3c0940045, type: 3}
+  m_Name: StageSo_11
   m_EditorClassIdentifier: 
-  m_Group: {fileID: 11400000, guid: ac6a412c91244cc4e9f60639a5ea7c53, type: 2}
-  m_StaticContent: 0
+  tm:
+    stageID: 11

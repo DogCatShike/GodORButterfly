@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4797913431912489609}
   m_Layer: 0
-  m_Name: Entity_Map_1_1
+  m_Name: Entity_Map_11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

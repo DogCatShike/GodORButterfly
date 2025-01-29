@@ -10,28 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Entity
+  m_Name: Default Local Group
   m_EditorClassIdentifier: 
-  m_GroupName: Entity
+  m_GroupName: Default Local Group
   m_Data:
     m_SerializedData: []
-  m_GUID: 548b0df08c5e7e441851c4f32af11b48
+  m_GUID: 946c243521a9c5b43aee14fbdd5a0c13
   m_SerializeEntries:
-  - m_GUID: bae9cff2325e1f747840f66381c898fe
-    m_Address: Entity_Role
+  - m_GUID: b6b07884aa8e6d847a48764fc9e608e5
+    m_Address: StageSo_11
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Entity
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 99952555861c5c44e9966e579096d45a
-    m_Address: Entity_Map_11
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Entity
+    - So_Stage
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 79ff86b76ba3c6c4faff67621f19701e, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 2ee1308dd42bb0c4ab66271971b14552, type: 2}
-    - {fileID: 11400000, guid: 5759b26529784a04899394b4c06521b7, type: 2}
+    - {fileID: 11400000, guid: e1a5adfbe499cd24fb486c6764e7285a, type: 2}
+    - {fileID: 11400000, guid: df20400e367a9994fa18a66643a25a16, type: 2}

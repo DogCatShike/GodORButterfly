@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: Panel
   m_Data:
     m_SerializedData: []
-  m_GUID: 946c243521a9c5b43aee14fbdd5a0c13
+  m_GUID: 80ce917b1114f8d428dcc8c47c526668
   m_SerializeEntries:
   - m_GUID: 814425e4362950043a6be1289b43cd29
     m_Address: Panel_StartGame
@@ -27,5 +27,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 79ff86b76ba3c6c4faff67621f19701e, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: e1a5adfbe499cd24fb486c6764e7285a, type: 2}
-    - {fileID: 11400000, guid: df20400e367a9994fa18a66643a25a16, type: 2}
+    - {fileID: 11400000, guid: 94f4c73d94582034f89a1b17fec28ce7, type: 2}
+    - {fileID: 11400000, guid: c157b0608bdda81439df95602dc8bd94, type: 2}

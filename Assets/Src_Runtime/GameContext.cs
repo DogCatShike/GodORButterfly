@@ -15,6 +15,7 @@ namespace GB
 
         //Repo
         public RoleRepository roleRepository;
+        public MapRepository mapRepository;
 
         public GameContext()
         {
@@ -26,6 +27,7 @@ namespace GB
             uiApp = new UIApp();
 
             roleRepository = new RoleRepository();
+            mapRepository = new MapRepository();
         }
 
         public void Inject(Canvas canvas)

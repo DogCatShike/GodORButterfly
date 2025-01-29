@@ -24,11 +24,11 @@ namespace GB
             //Binding
             Binding();
 
-            Action action = async () => {
+            Action action = async () =>
+            {
 
                 await ctx.assetsCore.LoadAll();
-                //TM资源加载
-                // await ctx.templateCore.LoadAll();
+                await ctx.templateCore.LoadAll();
 
                 isInit = true;
 
@@ -42,13 +42,15 @@ namespace GB
             var events = ctx.uiApp.GetEvents();
             var game = ctx.gameEntity;
 
-            events.OnStartGameHandle += () => {
+            events.OnStartGameHandle += () =>
+            {
                 ctx.uiApp.Panel_StartGame_Close();
                 Debug.Log("Start Game");
                 GameBusiness.Enter(ctx);
             };
 
-            events.OnQuitGameHandle += () => {
+            events.OnQuitGameHandle += () =>
+            {
                 Application.Quit();
                 Debug.Log("Quit Game");
             };
@@ -56,7 +58,28 @@ namespace GB
 
         void Update()
         {
-            
+
+        }
+
+        void OnDestroy()
+        {
+            TearDown();
+        }
+
+        void ApplciationQuit()
+        {
+            TearDown();
+        }
+
+        void TearDown()
+        {
+            if (isTearDown)
+            {
+                return;
+            }
+            isTearDown = true;
+            ctx.assetsCore.UnLoadAll();
+            ctx.templateCore.UnLoadAll();
         }
     }
 }

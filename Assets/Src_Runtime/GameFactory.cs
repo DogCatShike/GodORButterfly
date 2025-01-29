@@ -19,5 +19,21 @@ namespace GB
 
             return role;
         }
+
+        public static MapEntity Map_Create(GameContext ctx, int stageID)
+        {
+            GameObject prefab = ctx.assetsCore.Entity_GetMap(stageID);
+            if (prefab == null)
+            {
+                Debug.LogError("Map prefab is null");
+            }
+
+            MapEntity map = GameObject.Instantiate(prefab).GetComponent<MapEntity>();
+            map.Ctor(); // 为什么这行报错空引用?
+            map.stageID = stageID;
+            ctx.gameEntity.mapID = map.stageID;
+
+            return map;
+        }
     }
 }

@@ -10,6 +10,7 @@ namespace GB
         public GameState state;
 
         public int ownerID;
+        public int mapID;
 
         public GameEntity()
         {
@@ -18,6 +19,7 @@ namespace GB
             state = GameState.Login;
 
             ownerID = 0;
+            mapID = 0;
         }
     }
 }

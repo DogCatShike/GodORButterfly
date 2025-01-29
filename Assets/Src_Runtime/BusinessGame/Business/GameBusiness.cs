@@ -10,15 +10,16 @@ namespace GB
             var game = ctx.gameEntity;
             game.state = GameState.Game;
 
-            //typeID不对，晚点改
-            RoleDomain.Spawn(ctx, game.ownerID);
-            
-            //TODO: 游戏关卡生成
+            //typeID这样写?
+            RoleDomain.Spawn(ctx, 1);
+
+            bool has = ctx.templateCore.TryGetStage(11, out StageTM tm);
+            MapDomain.Spawn(ctx, 11);
         }
 
         public static void Tick(GameContext ctx, float dt)
         {
-            
+
         }
 
         public static void PreTick(GameContext ctx, float dt)
