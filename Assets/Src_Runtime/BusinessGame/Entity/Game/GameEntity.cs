@@ -11,6 +11,7 @@ namespace GB
 
         public int ownerID;
         public int mapID;
+        public int stuffID;
 
         public GameEntity()
         {
@@ -20,6 +21,7 @@ namespace GB
 
             ownerID = 0;
             mapID = 0;
+            stuffID = 0;
         }
     }
 }

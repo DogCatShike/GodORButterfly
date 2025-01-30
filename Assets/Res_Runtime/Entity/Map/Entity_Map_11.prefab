@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4797913431912489609}
+  - component: {fileID: 3264463658255844684}
   m_Layer: 0
   m_Name: Entity_Map_11
   m_TagString: Untagged
@@ -34,6 +35,19 @@ Transform:
   - {fileID: 8493469854139319417}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3264463658255844684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860755963236902907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc30d265594533340840ee7694c54cc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageID: 0
 --- !u!1 &959686238580434040
 GameObject:
   m_ObjectHideFlags: 0

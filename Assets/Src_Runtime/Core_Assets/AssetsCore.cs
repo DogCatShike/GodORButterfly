@@ -79,6 +79,12 @@ namespace GB
             return entity;
         }
 
+        public GameObject Entity_GetStuff(int typeID)
+        {
+            entities.TryGetValue("Entity_Stuff_" + typeID, out GameObject entity);
+            return entity;
+        }
+
         //Panel
         public GameObject Panel_GetStartGame()
         {

@@ -7,5 +7,6 @@ namespace GB
     public class StageTM
     {
         public int stageID;
+        public StuffSpawnTM[] stuffSpawns;
     }
 }

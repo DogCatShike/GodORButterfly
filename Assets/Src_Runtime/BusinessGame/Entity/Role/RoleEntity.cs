@@ -11,10 +11,13 @@ namespace GB
         [SerializeField] Rigidbody2D rb;
         public float moveSpeed;
 
+        [SerializeField] Animator animator;
+
         public void Ctor()
         {
             rb = GetComponent<Rigidbody2D>();
             moveSpeed = 5;
+            animator = GetComponent<Animator>();
         }
 
         public void Move(Vector2 dir)
@@ -33,6 +36,9 @@ namespace GB
             {
                 transform.localScale = new Vector3(-1, 1, 1);
             }
+
+            float animMove = Mathf.Abs(dir.x);
+            animator.SetFloat("Move", animMove);
         }
 
         public void StopMove()
@@ -40,6 +46,8 @@ namespace GB
             var velo = rb.velocity;
             velo.x = 0;
             rb.velocity = velo;
+
+            animator.SetFloat("Move", 0);
         }
 
         public void TearDown()

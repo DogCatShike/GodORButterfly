@@ -29,11 +29,47 @@ namespace GB
             }
 
             MapEntity map = GameObject.Instantiate(prefab).GetComponent<MapEntity>();
-            map.Ctor(); // 为什么这行报错空引用?
+            map.Ctor();
             map.stageID = stageID;
             ctx.gameEntity.mapID = map.stageID;
 
             return map;
+        }
+
+        //这段感觉没必要留了
+        public static StuffEntity Stuff_Create(GameContext ctx, int typeID)
+        {
+            GameObject prefab = ctx.assetsCore.Entity_GetStuff(typeID);
+            if (prefab == null)
+            {
+                Debug.LogError("Stuff prefab is null");
+            }
+
+            StuffEntity stuff = GameObject.Instantiate(prefab).GetComponent<StuffEntity>();
+            stuff.Ctor();
+            stuff.typeID = typeID;
+            ctx.gameEntity.stuffID = stuff.typeID;
+
+            return stuff;
+        }
+
+        public static StuffEntity Stuff_CreateBySpawn(GameContext ctx, StuffSpawnTM spawnTM)
+        {
+            // 这样写?
+            GameObject prefab = ctx.assetsCore.Entity_GetStuff(spawnTM.so.tm.typeID);
+            if (prefab == null)
+            {
+                Debug.LogError("Stuff prefab is null");
+            }
+
+            StuffEntity stuff = GameObject.Instantiate(prefab).GetComponent<StuffEntity>();
+            stuff.Ctor();
+            stuff.idSig = ctx.gameEntity.stuffID;
+
+            stuff.TF_Transfrom(spawnTM.position);
+            stuff.TF_Rotation(spawnTM.rotation);
+
+            return stuff;
         }
     }
 }
