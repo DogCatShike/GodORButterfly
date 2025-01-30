@@ -58,7 +58,23 @@ namespace GB
 
         void Update()
         {
+            if (!isInit)
+            {
+                return;
+            }
 
+            float dt = Time.deltaTime;
+            ctx.inputCore.Process();
+            var game = ctx.gameEntity;
+
+            if (game.state == GameState.LoginEnter)
+            {
+                LoginBusiness.Tick(ctx, dt);
+            }
+            else if (game.state == GameState.Game)
+            {
+                GameBusiness.Tick(ctx, dt);
+            }
         }
 
         void OnDestroy()

@@ -13,6 +13,11 @@ namespace GB
             return role;
         }
 
+        public static void Move(RoleEntity role, Vector2 dir)
+        {
+            role.Move(dir);
+        }
+
         public static void UnSpawn(GameContext ctx, RoleEntity role)
         {
             ctx.roleRepository.Remove(role);

@@ -20,7 +20,7 @@ namespace GB
         public GameContext()
         {
             gameEntity = new GameEntity();
-            
+
             assetsCore = new AssetsCore();
             templateCore = new TemplateCore();
             inputCore = new InputCore();
@@ -33,6 +33,12 @@ namespace GB
         public void Inject(Canvas canvas)
         {
             uiApp.Inject(assetsCore, canvas);
+        }
+
+        public RoleEntity Get_Role()
+        {
+            roleRepository.TryGet(gameEntity.ownerID, out RoleEntity role);
+            return role;
         }
     }
 }
