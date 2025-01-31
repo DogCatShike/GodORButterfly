@@ -12,9 +12,13 @@ namespace GB
         public Dictionary<int, StageTM> stages;
         public AsyncOperationHandle stageHandle;
 
+        public Dictionary<int, StuffTM> stuffs;
+        public AsyncOperationHandle stuffHandle;
+
         public TemplateCore()
         {
             stages = new Dictionary<int, StageTM>();
+            stuffs = new Dictionary<int, StuffTM>();
         }
 
         public async Task LoadAll()
@@ -33,6 +37,21 @@ namespace GB
                 }
 
                 stageHandle = handle;
+            }
+            {
+                AssetLabelReference labelReference = new AssetLabelReference();
+
+                labelReference.labelString = "So_Stuff";
+                var handle = Addressables.LoadAssetsAsync<StuffSO>(labelReference, null);
+                var all = await handle.Task;
+
+                foreach (var so in all)
+                {
+                    var tm = so.tm;
+                    stuffs.Add(tm.typeID, tm);
+                }
+
+                stuffHandle = handle;
             }
         }
 

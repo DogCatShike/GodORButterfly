@@ -15,5 +15,6 @@ MonoBehaviour:
   tm:
     typeName: Shovel
     typeID: 1
+    spawnStageID: 11
     sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     description: "\u4E00\u628A\u94F2\u5B50"

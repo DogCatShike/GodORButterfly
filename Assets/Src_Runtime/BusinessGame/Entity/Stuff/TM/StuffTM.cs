@@ -8,6 +8,8 @@ namespace GB
     {
         public string typeName;
         public int typeID;
+
+        public int spawnStageID;
         
         public Sprite sprite;
         public string description;
