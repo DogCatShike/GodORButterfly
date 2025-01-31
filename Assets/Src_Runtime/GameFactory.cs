@@ -71,5 +71,23 @@ namespace GB
 
             return stuff;
         }
+
+        public static StepEntity Step_CreateBySpawn(GameContext ctx, StepSpawnTM spawnTM)
+        {
+            GameObject prefab = ctx.assetsCore.Entity_GetStep();
+            if (prefab == null)
+            {
+                Debug.LogError("Step prefab is null");
+            }
+
+            StepEntity step = GameObject.Instantiate(prefab).GetComponent<StepEntity>();
+            step.Ctor();
+            step.idSig = ctx.gameEntity.stepID;
+
+            step.TF_Transfrom(spawnTM.position);
+            step.TF_Rotation(spawnTM.rotation);
+
+            return step;
+        }
     }
 }

@@ -16,19 +16,17 @@ namespace GB
             bool has = ctx.templateCore.TryGetStage(11, out StageTM tm);
             MapDomain.Spawn(ctx, 11);
 
-            Debug.Log(game.mapID);
-
             for (int i = 0; i < tm.stuffSpawns.Length; i++)
             {
                 StuffSpawnTM spawnTM = tm.stuffSpawns[i];
-
-                Debug.Log(spawnTM.so.tm.spawnStageID);
 
                 if(spawnTM.so.tm.spawnStageID == game.mapID)
                 {
                     StuffEntity stuff = StuffDomain.SpawnBySpawn(ctx, spawnTM.so.tm.typeID, spawnTM);
                 }
             }
+
+            StepEntity step = StepDomain.SpawnBySpawn(ctx, tm.stepSpawn);
         }
 
         public static void Tick(GameContext ctx, float dt)

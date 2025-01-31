@@ -85,6 +85,12 @@ namespace GB
             return entity;
         }
 
+        public GameObject Entity_GetStep()
+        {
+            entities.TryGetValue("Entity_Step", out GameObject entity);
+            return entity;
+        }
+
         //Panel
         public GameObject Panel_GetStartGame()
         {

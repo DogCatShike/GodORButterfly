@@ -12,6 +12,7 @@ namespace GB
         public int ownerID;
         public int mapID;
         public int stuffID;
+        public int stepID; // 没必要吧，这种唯一的东西
 
         public GameEntity()
         {
@@ -22,6 +23,7 @@ namespace GB
             ownerID = 0;
             mapID = 0;
             stuffID = 0;
+            stepID = 0;
         }
     }
 }

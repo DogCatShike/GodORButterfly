@@ -15,10 +15,14 @@ namespace GB
         public Dictionary<int, StuffTM> stuffs;
         public AsyncOperationHandle stuffHandle;
 
+        public Dictionary<int, StepTM> steps;
+        public AsyncOperationHandle stepHandle;
+
         public TemplateCore()
         {
             stages = new Dictionary<int, StageTM>();
             stuffs = new Dictionary<int, StuffTM>();
+            steps = new Dictionary<int, StepTM>();
         }
 
         public async Task LoadAll()
@@ -52,6 +56,21 @@ namespace GB
                 }
 
                 stuffHandle = handle;
+            }
+            {
+                AssetLabelReference labelReference = new AssetLabelReference();
+
+                labelReference.labelString = "So_Step";
+                var handle = Addressables.LoadAssetsAsync<StepSO>(labelReference, null);
+                var all = await handle.Task;
+
+                foreach (var so in all)
+                {
+                    var tm = so.tm;
+                    steps.Add(tm.typeID, tm);
+                }
+
+                stepHandle = handle;
             }
         }
 

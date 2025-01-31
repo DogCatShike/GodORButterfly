@@ -93,6 +93,7 @@ MonoBehaviour:
     - Entity
     - So_Stage
     - So_Stuff
+    - So_Step
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 6cdb6b4eb2fd5754a81780af09748b73, type: 2}
