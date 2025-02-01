@@ -27,7 +27,7 @@ namespace GB
                 var Player = input_Role.Player;
 
             {
-                // kbx什么意思
+                // kbx什么意思 键盘
                 float kbxLeft = Player.MoveLeft.ReadValue<float>();
                 float kbxRight = Player.MoveRight.ReadValue<float>();
 

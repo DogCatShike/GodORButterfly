@@ -63,6 +63,10 @@ namespace GB {
                 BagDomain.Toogle(ctx, bag);
             }
 
+            if (input.isKeyDownEsc) {
+                ctx.uiApp.Panel_PauseGame_Open();
+                Time.timeScale = 0;
+            }
         }
 
         public static void LastTick(GameContext ctx, float dt) {

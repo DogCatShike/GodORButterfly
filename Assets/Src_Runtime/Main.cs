@@ -53,6 +53,20 @@ namespace GB
                 Application.Quit();
                 Debug.Log("Quit Game");
             };
+
+            events.OnContinueGameHandle += () =>
+            {
+                ctx.uiApp.Panel_PauseGame_Close();
+                Time.timeScale = 1;
+            };
+
+            events.OnBackGameHandle += () =>
+            {
+                ctx.uiApp.Panel_PauseGame_Close();
+                Debug.Log("Back to Login");
+
+                //TODO: 重置游戏, 返回主界面
+            };
         }
 
         void Update()

@@ -97,6 +97,13 @@ namespace GB
             panels.TryGetValue("Panel_StartGame", out GameObject panel);
             return panel;
         }
+
+        public GameObject Panel_GetPauseGame()
+        {
+            panels.TryGetValue("Panel_PauseGame", out GameObject panel);
+            return panel;
+        }
+
         public GameObject Panel_GetBag()
         {
             panels.TryGetValue("Panel_Bag", out GameObject panel);

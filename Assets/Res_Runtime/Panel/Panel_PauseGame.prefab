@@ -478,6 +478,7 @@ GameObject:
   - component: {fileID: 1227013780732178185}
   - component: {fileID: 5001251870413154542}
   - component: {fileID: 4089342245038495661}
+  - component: {fileID: -3984582192696512580}
   m_Layer: 5
   m_Name: Panel_PauseGame
   m_TagString: Untagged
@@ -543,6 +544,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &-3984582192696512580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6379718219750922789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f2e74b79c0f8c94db22ac4df868a343, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  btn_ContinueGame: {fileID: 8347328953339893342}
+  btn_BackGame: {fileID: 4400834058621244111}
 --- !u!1 &6950327346852267656
 GameObject:
   m_ObjectHideFlags: 0

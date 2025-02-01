@@ -17,6 +17,20 @@ namespace GB {
             }
         }
 
+        public Action OnContinueGameHandle;
+        public void Panel_ContinueGameClick() {
+            if (OnContinueGameHandle != null) {
+                OnContinueGameHandle.Invoke();
+            }
+        }
+
+        public Action OnBackGameHandle;
+        public void Panel_BackGameClick() {
+            if (OnBackGameHandle != null) {
+                OnBackGameHandle.Invoke();
+            }
+        }
+
         public Action<int> OnUseHandle;
         public void Panel_BagElementUse(int id) {
             if (OnUseHandle != null) {
