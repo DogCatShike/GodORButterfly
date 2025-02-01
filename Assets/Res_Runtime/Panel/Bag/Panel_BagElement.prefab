@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3840311526654135910}
   - component: {fileID: 8234304696494207216}
   - component: {fileID: 8055596890572825808}
+  - component: {fileID: -5366336709797172858}
   m_Layer: 5
   m_Name: Panel_BagElement
   m_TagString: Untagged
@@ -120,3 +121,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &-5366336709797172858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6282247467370638232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0595adfabed39934f97d8630adf262c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  imageIcon: {fileID: 8234304696494207216}
+  btn: {fileID: 8055596890572825808}

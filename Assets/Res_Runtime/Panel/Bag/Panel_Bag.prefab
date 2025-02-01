@@ -85,6 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8756683195512826934}
   - component: {fileID: 722508240201219339}
+  - component: {fileID: 4470868690288760012}
   m_Layer: 5
   m_Name: Panel_Bag
   m_TagString: Untagged
@@ -120,6 +121,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1032867284613803372}
   m_CullTransparentMesh: 1
+--- !u!114 &4470868690288760012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032867284613803372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04aac9af0417b434183356912f424e62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  group: {fileID: 1067350391576596005}
+  elementPrefab: {fileID: -5366336709797172858, guid: 5ad249fad944a994d9b03967dc02c537, type: 3}
 --- !u!1 &2655050450851771918
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,7 +437,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -479.99994, y: 66.49989}
+  m_AnchoredPosition: {x: -480, y: 66.49989}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1067350391576596005
