@@ -11,6 +11,7 @@ namespace GB
         public int count;
 
         public Sprite icon;
+        public string description;
 
         public void Ctor()
         {

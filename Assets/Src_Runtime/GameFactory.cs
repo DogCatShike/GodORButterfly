@@ -60,6 +60,8 @@ namespace GB {
             StuffEntity stuff = GameObject.Instantiate(prefab).GetComponent<StuffEntity>();
             stuff.Ctor();
             stuff.idSig = ctx.gameEntity.stuffID;
+            stuff.typeID = spawnTM.so.tm.typeID;
+            stuff.description = spawnTM.so.tm.description;
 
             stuff.TF_Transfrom(spawnTM.position);
             stuff.TF_Rotation(spawnTM.rotation);
