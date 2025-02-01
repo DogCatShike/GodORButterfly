@@ -8,6 +8,10 @@ namespace GB
         public int idSig;
         public int typeID;
 
+        public int count;
+
+        public Sprite icon;
+
         public void Ctor()
         {
 

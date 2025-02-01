@@ -21,9 +21,10 @@ namespace GB {
             });
         }
 
-        public void Init(int id, Sprite sprite) {
+        public void Init(int id, Sprite sprite,int count) {
             this.id = id;
             imageIcon.sprite = sprite;
+            
         }
 
     }

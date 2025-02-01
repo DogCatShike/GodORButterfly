@@ -12,15 +12,21 @@ namespace GB {
         [SerializeField] Animator animator;
 
         // bag
-        BagComponent bag;
-        public BagComponent Bag => bag;
+        BagComponent bagCom;
+        public BagComponent BagCom => bagCom;
+        public Action<RoleEntity, Collider2D> OnTriggerEnterHandle;
+
 
         public void Ctor() {
             rb = GetComponent<Rigidbody2D>();
             moveSpeed = 5;
             animator = GetComponent<Animator>();
 
-            bag = new BagComponent();
+            bagCom = new BagComponent();
+        }
+
+        public void Init(int maxSlot) {
+            bagCom.Init(maxSlot);
         }
 
         public void Move(Vector2 dir) {
@@ -50,6 +56,10 @@ namespace GB {
 
         public void TearDown() {
             Destroy(gameObject);
+        }
+
+        void OnTriggerEnter2D(Collider2D other) {
+            OnTriggerEnterHandle.Invoke(this, other);
         }
     }
 }

@@ -45,7 +45,6 @@ namespace GB
             events.OnStartGameHandle += () =>
             {
                 ctx.uiApp.Panel_StartGame_Close();
-                Debug.Log("Start Game");
                 GameBusiness.Enter(ctx);
             };
 

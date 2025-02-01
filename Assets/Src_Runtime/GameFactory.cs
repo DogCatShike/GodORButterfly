@@ -1,30 +1,28 @@
 using System;
 using UnityEngine;
 
-namespace GB
-{
-    public static class GameFactory
-    {
-        public static RoleEntity Role_Create(GameContext ctx)
-        {
+namespace GB {
+    public static class GameFactory {
+        public static RoleEntity Role_Create(GameContext ctx) {
             GameObject prefab = ctx.assetsCore.Entity_GetRole();
-            if (prefab == null)
-            {
+            if (prefab == null) {
                 Debug.LogError("Role prefab is null");
             }
 
             RoleEntity role = GameObject.Instantiate(prefab).GetComponent<RoleEntity>();
             role.Ctor();
             role.idSig = ctx.gameEntity.ownerID;
+            role.OnTriggerEnterHandle = (role, other) => {
+                RoleDomain.OnTriggerEnter(ctx, role, other);
+            };
+            role.Init(5);
 
             return role;
         }
 
-        public static MapEntity Map_Create(GameContext ctx, int stageID)
-        {
+        public static MapEntity Map_Create(GameContext ctx, int stageID) {
             GameObject prefab = ctx.assetsCore.Entity_GetMap(stageID);
-            if (prefab == null)
-            {
+            if (prefab == null) {
                 Debug.LogError("Map prefab is null");
             }
 
@@ -37,11 +35,9 @@ namespace GB
         }
 
         //这段感觉没必要留了
-        public static StuffEntity Stuff_Create(GameContext ctx, int typeID)
-        {
+        public static StuffEntity Stuff_Create(GameContext ctx, int typeID) {
             GameObject prefab = ctx.assetsCore.Entity_GetStuff(typeID);
-            if (prefab == null)
-            {
+            if (prefab == null) {
                 Debug.LogError("Stuff prefab is null");
             }
 
@@ -50,15 +46,14 @@ namespace GB
             stuff.typeID = typeID;
             ctx.gameEntity.stuffID = stuff.typeID;
 
+
             return stuff;
         }
 
-        public static StuffEntity Stuff_CreateBySpawn(GameContext ctx, StuffSpawnTM spawnTM)
-        {
+        public static StuffEntity Stuff_CreateBySpawn(GameContext ctx, StuffSpawnTM spawnTM) {
             // 这样写?
             GameObject prefab = ctx.assetsCore.Entity_GetStuff(spawnTM.so.tm.typeID);
-            if (prefab == null)
-            {
+            if (prefab == null) {
                 Debug.LogError("Stuff prefab is null");
             }
 
@@ -72,11 +67,9 @@ namespace GB
             return stuff;
         }
 
-        public static StepEntity Step_CreateBySpawn(GameContext ctx, StepSpawnTM spawnTM)
-        {
+        public static StepEntity Step_CreateBySpawn(GameContext ctx, StepSpawnTM spawnTM) {
             GameObject prefab = ctx.assetsCore.Entity_GetStep();
-            if (prefab == null)
-            {
+            if (prefab == null) {
                 Debug.LogError("Step prefab is null");
             }
 

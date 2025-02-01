@@ -29,7 +29,7 @@ namespace GB {
             for (int i = 0; i < maxSlot; i++) {
                 Panel_BagElement ele = Instantiate(elementPrefab, group.transform);
                 ele.Ctor();
-                ele.Init(-1, null);
+                ele.Init(-1, null, 1);
                 ele.OnClickHandler += OnUse;
                 elements.Add(ele);
             }
@@ -43,12 +43,12 @@ namespace GB {
         }
 
         // 添加
-        public void Add(int id, Sprite sprite) {
+        public void Add(int id, Sprite sprite, int count) {
             // 逻辑: 找到非-1的空格子, 设置内容
             for (int i = 0; i < elements.Count; i++) {
                 Panel_BagElement ele = elements[i];
                 if (ele.id == -1) {
-                    ele.Init(id, sprite);
+                    ele.Init(id, sprite, count);
                     break;
                 }
             }
@@ -60,7 +60,7 @@ namespace GB {
             for (int i = 0; i < elements.Count; i++) {
                 Panel_BagElement ele = elements[i];
                 if (ele.id == id) {
-                    ele.Init(-1, null);
+                    ele.Init(-1, null, 0);
                     break;
                 }
             }

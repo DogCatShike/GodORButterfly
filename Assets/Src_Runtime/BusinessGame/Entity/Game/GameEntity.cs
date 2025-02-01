@@ -1,10 +1,8 @@
 using System;
 using UnityEngine;
 
-namespace GB
-{
-    public class GameEntity
-    {
+namespace GB {
+    public class GameEntity {
         public float restFixTime;
 
         public GameState state;
@@ -13,9 +11,10 @@ namespace GB
         public int mapID;
         public int stuffID;
         public int stepID; // 没必要吧，这种唯一的东西
+        public int itemIDRecord;
 
-        public GameEntity()
-        {
+
+        public GameEntity() {
             restFixTime = 0;
 
             state = GameState.Login;
@@ -24,6 +23,7 @@ namespace GB
             mapID = 0;
             stuffID = 0;
             stepID = 0;
+            itemIDRecord = 0;
         }
     }
 }

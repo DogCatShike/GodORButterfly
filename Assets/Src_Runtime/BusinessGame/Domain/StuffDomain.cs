@@ -9,7 +9,6 @@ namespace GB
         public static StuffEntity Spawn(GameContext ctx, int typeID)
         {
             StuffEntity stuff = GameFactory.Stuff_Create(ctx, typeID);
-            stuff.typeID = typeID;
             ctx.stuffRepository.Add(stuff);
             return stuff;
         }
@@ -17,7 +16,6 @@ namespace GB
         public static StuffEntity SpawnBySpawn(GameContext ctx, int typeID, StuffSpawnTM spawnTM)
         {
             StuffEntity stuff = GameFactory.Stuff_CreateBySpawn(ctx, spawnTM);
-            stuff.typeID = typeID;
             ctx.stuffRepository.Add(stuff);
             return stuff;
         }

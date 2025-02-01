@@ -23,7 +23,6 @@ namespace GB {
 
             StepEntity step = StepDomain.SpawnBySpawn(ctx, tm.stepSpawn);
 
-            BagDomain.Open(ctx);
         }
 
         public static void Tick(GameContext ctx, float dt) {
@@ -59,7 +58,7 @@ namespace GB {
             RoleDomain.Move(role, input.moveAxis);
 
             // bag
-            BagComponent bag = role.Bag;
+            BagComponent bag = role.BagCom;
             if (input.isKeyDownTab) {
                 BagDomain.Toogle(ctx, bag);
             }
