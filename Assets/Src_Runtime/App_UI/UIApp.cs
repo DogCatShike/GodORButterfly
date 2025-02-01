@@ -73,19 +73,21 @@ namespace GB {
                 };
             }
             panel.Init(maxSlot);
+            ctx.panel_Bag = panel;
         }
 
         public bool Bag_IsOpened() {
             Panel_Bag bag = ctx.panel_Bag;
+            Debug.Log("Bag_IsOpened: " + (bag != null));
             return bag != null;
         }
 
         public void Bag_Close() {
             Panel_Bag bag = ctx.panel_Bag;
             bag?.Close();
-            bag = null;
+            ctx.panel_Bag = null;
         }
-        
+
         #endregion
     }
 }

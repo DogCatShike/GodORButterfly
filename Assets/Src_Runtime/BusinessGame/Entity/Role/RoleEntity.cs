@@ -1,10 +1,8 @@
 using System;
 using UnityEngine;
 
-namespace GB
-{
-    public class RoleEntity : MonoBehaviour
-    {
+namespace GB {
+    public class RoleEntity : MonoBehaviour {
         public int idSig;
         public int typeID;
 
@@ -13,27 +11,28 @@ namespace GB
 
         [SerializeField] Animator animator;
 
-        public void Ctor()
-        {
+        // bag
+        BagComponent bag;
+        public BagComponent Bag => bag;
+
+        public void Ctor() {
             rb = GetComponent<Rigidbody2D>();
             moveSpeed = 5;
             animator = GetComponent<Animator>();
+
+            bag = new BagComponent();
         }
 
-        public void Move(Vector2 dir)
-        {
+        public void Move(Vector2 dir) {
             var velo = rb.velocity;
             float veloy = velo.y;
             velo.x = dir.x * moveSpeed;
             velo.y = veloy;
             rb.velocity = velo;
 
-            if (dir.x > 0)
-            {
+            if (dir.x > 0) {
                 transform.localScale = new Vector3(1, 1, 1);
-            }
-            else if (dir.x < 0)
-            {
+            } else if (dir.x < 0) {
                 transform.localScale = new Vector3(-1, 1, 1);
             }
 
@@ -41,8 +40,7 @@ namespace GB
             animator.SetFloat("Move", animMove);
         }
 
-        public void StopMove()
-        {
+        public void StopMove() {
             var velo = rb.velocity;
             velo.x = 0;
             rb.velocity = velo;
@@ -50,8 +48,7 @@ namespace GB
             animator.SetFloat("Move", 0);
         }
 
-        public void TearDown()
-        {
+        public void TearDown() {
             Destroy(gameObject);
         }
     }

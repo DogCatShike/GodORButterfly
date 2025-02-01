@@ -1,12 +1,9 @@
 using System;
 using UnityEngine;
 
-namespace GB
-{
-    public static class GameBusiness
-    {
-        public static void Enter(GameContext ctx)
-        {
+namespace GB {
+    public static class GameBusiness {
+        public static void Enter(GameContext ctx) {
             var game = ctx.gameEntity;
             game.state = GameState.Game;
 
@@ -16,12 +13,10 @@ namespace GB
             bool has = ctx.templateCore.TryGetStage(11, out StageTM tm);
             MapDomain.Spawn(ctx, 11);
 
-            for (int i = 0; i < tm.stuffSpawns.Length; i++)
-            {
+            for (int i = 0; i < tm.stuffSpawns.Length; i++) {
                 StuffSpawnTM spawnTM = tm.stuffSpawns[i];
 
-                if(spawnTM.so.tm.spawnStageID == game.mapID)
-                {
+                if (spawnTM.so.tm.spawnStageID == game.mapID) {
                     StuffEntity stuff = StuffDomain.SpawnBySpawn(ctx, spawnTM.so.tm.typeID, spawnTM);
                 }
             }
@@ -31,8 +26,7 @@ namespace GB
             BagDomain.Open(ctx);
         }
 
-        public static void Tick(GameContext ctx, float dt)
-        {
+        public static void Tick(GameContext ctx, float dt) {
             PreTick(ctx, dt);
 
             ref float restFixTime = ref ctx.gameEntity.restFixTime;
@@ -40,17 +34,13 @@ namespace GB
             restFixTime += dt;
             const float FIX_INTERVAL = 0.020f;
 
-            if (restFixTime <= FIX_INTERVAL)
-            {
+            if (restFixTime <= FIX_INTERVAL) {
 
                 LogicTick(ctx, restFixTime);
 
                 restFixTime = 0;
-            }
-            else
-            {
-                while (restFixTime >= FIX_INTERVAL)
-                {
+            } else {
+                while (restFixTime >= FIX_INTERVAL) {
                     LogicTick(ctx, FIX_INTERVAL);
                     restFixTime -= FIX_INTERVAL;
                 }
@@ -59,21 +49,24 @@ namespace GB
             LastTick(ctx, dt);
         }
 
-        public static void PreTick(GameContext ctx, float dt)
-        {
-
+        public static void PreTick(GameContext ctx, float dt) {
         }
 
-        public static void LogicTick(GameContext ctx, float dt)
-        {
+        public static void LogicTick(GameContext ctx, float dt) {
             var input = ctx.inputCore;
             RoleEntity role = ctx.Get_Role();
 
             RoleDomain.Move(role, input.moveAxis);
+
+            // bag
+            BagComponent bag = role.Bag;
+            if (input.isKeyDownTab) {
+                BagDomain.Toogle(ctx, bag);
+            }
+
         }
 
-        public static void LastTick(GameContext ctx, float dt)
-        {
+        public static void LastTick(GameContext ctx, float dt) {
 
         }
     }

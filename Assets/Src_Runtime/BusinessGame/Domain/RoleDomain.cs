@@ -33,5 +33,16 @@ namespace GB
                 UnSpawn(ctx, role);
             }
         }
+
+        #region Bag
+
+        public static void OnTriggerEnter(GameContext ctx,RoleEntity role,Collider2D other){
+            // 碰到物品
+            
+
+
+        }
+
+        #endregion 
     }
 }

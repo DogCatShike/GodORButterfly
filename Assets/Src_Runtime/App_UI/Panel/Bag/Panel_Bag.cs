@@ -36,16 +36,43 @@ namespace GB {
         }
 
         public void Close() {
-            foreach (var element in elements) {
-                Destroy(element.gameObject);
+            foreach (var ele in elements) {
+                GameObject.Destroy(ele.gameObject);
             }
-            elements.Clear();
+            GameObject.Destroy(gameObject);
         }
 
         // 添加
         public void Add(int id, Sprite sprite) {
             // 逻辑: 找到非-1的空格子, 设置内容
-
+            for (int i = 0; i < elements.Count; i++) {
+                Panel_BagElement ele = elements[i];
+                if (ele.id == -1) {
+                    ele.Init(id, sprite);
+                    break;
+                }
+            }
         }
+
+        // 移除
+        public void Remove(int id) {
+            // 逻辑: 找到id相同的格子, 设置内容为空
+            for (int i = 0; i < elements.Count; i++) {
+                Panel_BagElement ele = elements[i];
+                if (ele.id == id) {
+                    ele.Init(-1, null);
+                    break;
+                }
+            }
+        }
+
+        public void Reomve2(int id) {
+            int index = elements.FindIndex(ele => ele.id == id);
+            if (index != -1) {
+                GameObject.Destroy(elements[index].gameObject);
+                elements.RemoveAt(index);
+            }
+        }
+
     }
 }
