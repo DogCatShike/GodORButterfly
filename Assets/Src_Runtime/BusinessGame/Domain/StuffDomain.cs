@@ -5,14 +5,6 @@ namespace GB
 {
     public static class StuffDomain
     {
-        // 也没必要了
-        public static StuffEntity Spawn(GameContext ctx, int typeID)
-        {
-            StuffEntity stuff = GameFactory.Stuff_Create(ctx, typeID);
-            ctx.stuffRepository.Add(stuff);
-            return stuff;
-        }
-
         public static StuffEntity SpawnBySpawn(GameContext ctx, int typeID, StuffSpawnTM spawnTM)
         {
             StuffEntity stuff = GameFactory.Stuff_CreateBySpawn(ctx, spawnTM);

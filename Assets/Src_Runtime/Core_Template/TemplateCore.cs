@@ -79,6 +79,16 @@ namespace GB
             return stages.TryGetValue(stageID, out stage);
         }
 
+        public bool TryGetStuff(int typeID, out StuffTM stuff)
+        {
+            return stuffs.TryGetValue(typeID, out stuff);
+        }
+
+        public bool TryGetStep(int typeID, out StepTM step)
+        {
+            return steps.TryGetValue(typeID, out step);
+        }
+
         public void UnLoadAll()
         {
             if (stageHandle.IsValid())
