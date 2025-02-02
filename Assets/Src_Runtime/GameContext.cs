@@ -44,5 +44,11 @@ namespace GB
             roleRepository.TryGet(gameEntity.ownerID, out RoleEntity role);
             return role;
         }
+
+        public MapEntity Get_Map()
+        {
+            mapRepository.TryGet(gameEntity.mapID, out MapEntity map);
+            return map;
+        }
     }
 }

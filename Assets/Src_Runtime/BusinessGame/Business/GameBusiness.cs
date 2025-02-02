@@ -22,7 +22,6 @@ namespace GB {
             }
 
             StepEntity step = StepDomain.SpawnBySpawn(ctx, tm.stepSpawn);
-
         }
 
         public static void Tick(GameContext ctx, float dt) {
@@ -67,6 +66,11 @@ namespace GB {
                 ctx.uiApp.Panel_PauseGame_Open();
                 Time.timeScale = 0;
             }
+
+            // Camera
+            MapEntity map = ctx.Get_Map();
+            GameObject bg = map.transform.Find("Follow").gameObject;
+            CameraDomain.FollowTarget(role.transform, bg, dt);
         }
 
         public static void LastTick(GameContext ctx, float dt) {
