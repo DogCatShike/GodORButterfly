@@ -101,7 +101,7 @@ MonoBehaviour:
   idSig: 0
   typeID: 0
   count: 0
-  icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 0}
   description: 
 --- !u!61 &8527798590685479351
 BoxCollider2D:
