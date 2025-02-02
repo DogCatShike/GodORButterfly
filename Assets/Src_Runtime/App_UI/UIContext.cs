@@ -5,11 +5,13 @@ namespace GB {
     public class UIContext {
         public UIEvent uiEvent;
 
-        //panel
+        //UI
         public Panel_StartGame panel_StartGame;
         public Panel_PauseGame panel_PauseGame;
 
         public Panel_Bag panel_Bag;
+
+        public Tip_PressE tip_PressE;
 
         //core
         public AssetsCore assetsCore;

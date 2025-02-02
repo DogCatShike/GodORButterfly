@@ -21,6 +21,10 @@ namespace GB
             {
                 RoleDomain.OnTriggerEnter(ctx, role, other);
             };
+            role.OnTriggerExitHandle = (role, other) =>
+            {
+                RoleDomain.OnTriggerExit(ctx, other);
+            };
             role.Init(5);
 
             return role;

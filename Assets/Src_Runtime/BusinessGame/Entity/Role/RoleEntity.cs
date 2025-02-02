@@ -15,7 +15,7 @@ namespace GB {
         BagComponent bagCom;
         public BagComponent BagCom => bagCom;
         public Action<RoleEntity, Collider2D> OnTriggerEnterHandle;
-
+        public Action<RoleEntity, Collider2D> OnTriggerExitHandle;
 
         public void Ctor() {
             rb = GetComponent<Rigidbody2D>();
@@ -60,6 +60,10 @@ namespace GB {
 
         void OnTriggerEnter2D(Collider2D other) {
             OnTriggerEnterHandle.Invoke(this, other);
+        }
+
+        void OnTriggerExit2D(Collider2D other) {
+            OnTriggerExitHandle.Invoke(this, other);
         }
     }
 }

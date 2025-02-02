@@ -20,5 +20,5 @@ MonoBehaviour:
       rotation: {x: 0, y: 0, z: 0}
     stepSpawn:
       so: {fileID: 11400000, guid: e89970f4c1eee534bb1ac49823ad99fc, type: 2}
-      position: {x: 0, y: 0, z: 0}
+      position: {x: 10, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0}

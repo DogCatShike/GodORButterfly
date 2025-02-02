@@ -152,5 +152,40 @@ namespace GB
         }
 
         #endregion
+
+        public void Tip_PressE_Open(RoleEntity role)
+        {
+            Tip_PressE tip = ctx.tip_PressE;
+
+            if (tip == null)
+            {
+                GameObject go = ctx.assetsCore.Tip_GetPressE();
+                if (!go)
+                {
+                    Debug.LogError("Tip_PressE not found");
+                    return;
+                }
+
+                tip = GameObject.Instantiate(go, ctx.canvas.transform).GetComponent<Tip_PressE>();
+                tip.Ctor();
+                
+                Vector2 pos = role.transform.localPosition;
+                pos.y = -30;
+                tip.transform.localPosition = pos;
+            }
+
+            ctx.tip_PressE = tip;
+        }
+
+        public void Tip_PressE_Close()
+        {
+            Tip_PressE tip = ctx.tip_PressE;
+
+            if (tip == null)
+            {
+                return;
+            }
+            tip.TearDown();
+        }
     }
 }
