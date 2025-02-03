@@ -71,6 +71,8 @@ namespace GB
             stuff.typeID = tm.typeID;
             stuff.description = tm.description;
 
+            stuff.icon = tm.sprite;
+
             stuff.TF_Transfrom(spawnTM.position);
             stuff.TF_Rotation(spawnTM.rotation);
 

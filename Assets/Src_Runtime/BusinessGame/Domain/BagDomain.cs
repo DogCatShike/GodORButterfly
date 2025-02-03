@@ -71,6 +71,7 @@ namespace GB {
                 item.typeID = stuff.typeID;
                 item.count = stuff.count;
                 item.icon = stuff.icon;
+                Debug.Log("拾取物品: " + item.typeID + " " + item.icon + " " + item.count);
                 return item;
             });
 
