@@ -81,16 +81,21 @@ namespace GB
 
         public static StepEntity Step_CreateBySpawn(GameContext ctx, StepSpawnTM spawnTM)
         {
-            //TODO: 改? 我想等下个关卡做出来试试会不会报错再说
-            GameObject prefab = ctx.assetsCore.Entity_GetStep();
-            if (prefab == null)
-            {
-                Debug.LogError("Step prefab is null");
-            }
+            int typeID = spawnTM.so.tm.typeID;
 
-            StepEntity step = GameObject.Instantiate(prefab).GetComponent<StepEntity>();
+            bool has = ctx.templateCore.TryGetStep(typeID, out var tm);
+            if (!has)
+            {
+                Debug.LogError("Step_Create: tm is null" + typeID);
+                return null;
+            }
+            GameObject prefab = ctx.assetsCore.Entity_GetStep(tm.typeID);
+            GameObject go = GameObject.Instantiate(prefab);
+            StepEntity step = go.GetComponent<StepEntity>();
+
             step.Ctor();
             step.idSig = ctx.gameEntity.stepID;
+            step.typeID = tm.typeID;
 
             step.TF_Transfrom(spawnTM.position);
             step.TF_Rotation(spawnTM.rotation);

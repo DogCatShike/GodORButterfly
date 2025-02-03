@@ -67,6 +67,7 @@ namespace GB {
                 // 拾取物品
                 if (isOpen) {
                     ctx.gameEntity.currentStuff = other.GetComponent<StuffEntity>();
+                    ctx.gameEntity.currentStep = null;
                 }
 
             } else if (other.CompareTag("Step")) {
@@ -76,6 +77,7 @@ namespace GB {
 
                 if (isOpen) {
                     ctx.gameEntity.currentStep = other.GetComponent<StepEntity>();
+                    ctx.gameEntity.currentStuff = null;
                 }
 
             }

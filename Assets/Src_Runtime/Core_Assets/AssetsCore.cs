@@ -85,9 +85,10 @@ namespace GB
             return entity;
         }
 
-        public GameObject Entity_GetStep()
+        public GameObject Entity_GetStep(int typeID)
         {
-            entities.TryGetValue("Entity_Step", out GameObject entity);
+            // 0向上, 1向下
+            entities.TryGetValue("Entity_Step_" + typeID, out GameObject entity);
             return entity;
         }
 

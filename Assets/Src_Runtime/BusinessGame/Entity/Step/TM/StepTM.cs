@@ -7,7 +7,5 @@ namespace GB
     public class StepTM
     {
         public int typeID;
-        
-        public Sprite sprite;
     }
 }

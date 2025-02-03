@@ -10,28 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Default Local Group
+  m_Name: StuffSo
   m_EditorClassIdentifier: 
-  m_GroupName: Default Local Group
+  m_GroupName: StuffSo
   m_Data:
     m_SerializedData: []
-  m_GUID: 946c243521a9c5b43aee14fbdd5a0c13
+  m_GUID: eafad414237e9f0469e719ac51d4e553
   m_SerializeEntries:
-  - m_GUID: e89970f4c1eee534bb1ac49823ad99fc
-    m_Address: StepSo_0
+  - m_GUID: 14dea634f7d66d743a959b1a771802dd
+    m_Address: StuffSo_1
     m_ReadOnly: 0
     m_SerializedLabels:
-    - So_Step
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 72d19562fbb9de842800bcef22a77714
-    m_Address: StepSo_1
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - So_Step
+    - So_Stuff
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 79ff86b76ba3c6c4faff67621f19701e, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: e1a5adfbe499cd24fb486c6764e7285a, type: 2}
-    - {fileID: 11400000, guid: df20400e367a9994fa18a66643a25a16, type: 2}
+    - {fileID: 11400000, guid: a7a4ad68f91f7fa43b3384cd3583b321, type: 2}
+    - {fileID: 11400000, guid: 695c9131ef47cac40bf4315c0a19aacd, type: 2}

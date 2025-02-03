@@ -6,6 +6,7 @@ namespace GB
     public class StepEntity : MonoBehaviour
     {
         public int idSig;
+        public int typeID; // 0向上, 1向下
 
         public void Ctor()
         {

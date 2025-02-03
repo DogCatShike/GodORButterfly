@@ -36,7 +36,19 @@ MonoBehaviour:
     - Entity
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f1d3c3d3036bc2f40992a2b3e2105913
-    m_Address: Entity_Step
+    m_Address: Entity_Step_0
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Entity
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5fd29d628ba252d4a871efbc28f6069b
+    m_Address: Entity_Step_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Entity
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 800298e1dfe9b9847b788bb8d9684194
+    m_Address: Entity_Map_12
     m_ReadOnly: 0
     m_SerializedLabels:
     - Entity
