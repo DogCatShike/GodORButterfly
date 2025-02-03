@@ -56,6 +56,11 @@ namespace GB {
 
             RoleDomain.Move(role, input.moveAxis);
 
+            // 拾取物品
+            if (input.isKeyDownE) {
+                RoleDomain.PressEPick(ctx, role);
+            }
+
             // bag
             BagComponent bag = role.BagCom;
             if (input.isKeyDownTab) {

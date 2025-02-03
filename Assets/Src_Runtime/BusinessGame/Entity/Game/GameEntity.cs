@@ -13,6 +13,9 @@ namespace GB {
         public int stepID; // 没必要吧，这种唯一的东西
         public int itemIDRecord;
 
+        // 临时数据 
+        public StuffEntity currentStuff;
+
 
         public GameEntity() {
             restFixTime = 0;
@@ -24,6 +27,8 @@ namespace GB {
             stuffID = 0;
             stepID = 0;
             itemIDRecord = 0;
+
+            currentStuff = null;
         }
     }
 }
