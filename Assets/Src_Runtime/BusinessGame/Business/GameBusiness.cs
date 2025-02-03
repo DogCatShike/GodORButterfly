@@ -59,6 +59,7 @@ namespace GB {
             // 拾取物品
             if (input.isKeyDownE) {
                 RoleDomain.PressEPick(ctx, role);
+                RoleDomain.PressESwitchingScenes(ctx, role);
             }
 
             // bag

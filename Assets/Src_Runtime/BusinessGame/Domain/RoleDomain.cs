@@ -41,6 +41,18 @@ namespace GB {
             game.currentStuff = null;
         }
 
+        public static void PressESwitchingScenes(GameContext ctx, RoleEntity role) {
+            var game = ctx.gameEntity;
+            var step = game.currentStep;
+            if (step == null) {
+                return;
+            }
+
+            // 切换场景
+            StepDomain.OnSwitchingScenes(ctx, role, step);
+            game.currentStep = null;
+        }
+
         #region Trigger
 
         public static void OnTriggerEnter(GameContext ctx, RoleEntity role, Collider2D other) {
@@ -59,7 +71,13 @@ namespace GB {
 
             } else if (other.CompareTag("Step")) {
                 ui.Tip_PressE_Open(role);
-                // TODO: 按键切换场景
+
+                bool isOpen = ui.isPressEOpened();
+
+                if (isOpen) {
+                    ctx.gameEntity.currentStep = other.GetComponent<StepEntity>();
+                }
+
             }
         }
 

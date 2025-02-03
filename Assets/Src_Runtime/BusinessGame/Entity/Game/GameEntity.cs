@@ -15,6 +15,7 @@ namespace GB {
 
         // 临时数据 
         public StuffEntity currentStuff;
+        public StepEntity currentStep;
 
 
         public GameEntity() {
@@ -29,6 +30,7 @@ namespace GB {
             itemIDRecord = 0;
 
             currentStuff = null;
+            currentStep = null;
         }
     }
 }
