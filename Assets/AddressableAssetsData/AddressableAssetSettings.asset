@@ -50,6 +50,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ac6a412c91244cc4e9f60639a5ea7c53, type: 2}
   - {fileID: 11400000, guid: 4b22b868f2b21734199523b0e50c167c, type: 2}
   - {fileID: 11400000, guid: 2d4042605df2a8f4c99a7b1d1b07a2a1, type: 2}
+  - {fileID: 11400000, guid: b7cbb8930d96ba54b89832ba885aec2d, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -96,6 +97,7 @@ MonoBehaviour:
     - So_Stage
     - So_Stuff
     - So_Step
+    - So_Interaction
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 6cdb6b4eb2fd5754a81780af09748b73, type: 2}

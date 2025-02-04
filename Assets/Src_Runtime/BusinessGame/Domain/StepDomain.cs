@@ -47,9 +47,12 @@ namespace GB
 
             StuffDomain.ClearAll(ctx);
             StepDomain.ClearAll(ctx);
+            InteractionDomain.ClearAll(ctx);
 
             bool has = ctx.templateCore.TryGetStage(stageID, out StageTM tm);
+
             MapDomain.Spawn(ctx, stageID);
+
             for (int i = 0; i < tm.stuffSpawns.Length; i++)
             {
                 StuffSpawnTM spawnTM = tm.stuffSpawns[i];
@@ -59,6 +62,20 @@ namespace GB
                     StuffDomain.SpawnBySpawn(ctx, spawnTM.so.tm.typeID, spawnTM);
                 }
             }
+
+            if (tm.interactionSpawns != null)
+            {
+                for (int i = 0; i < tm.interactionSpawns.Length; i++)
+                {
+                    InteractionSpawnTM spawnTM = tm.interactionSpawns[i];
+
+                    if (spawnTM.so.tm.spawnStageID == game.mapID)
+                    {
+                        InteractionDomain.SpawnBySpawn(ctx, spawnTM.so.tm.typeID, spawnTM);
+                    }
+                }
+            }
+
             StepDomain.SpawnBySpawn(ctx, tm.stepSpawn);
             MapDomain.UnSpawn(ctx, map);
 

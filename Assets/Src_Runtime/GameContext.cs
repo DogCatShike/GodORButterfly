@@ -18,6 +18,7 @@ namespace GB
         public MapRepository mapRepository;
         public StuffRepository stuffRepository;
         public StepRepository stepRepository;
+        public InteractionRepository interactionRepository;
 
         public GameContext()
         {
@@ -32,6 +33,7 @@ namespace GB
             mapRepository = new MapRepository();
             stuffRepository = new StuffRepository();
             stepRepository = new StepRepository();
+            interactionRepository = new InteractionRepository();
         }
 
         public void Inject(Canvas canvas)

@@ -8,6 +8,7 @@ namespace GB
     {
         public int stageID;
         public StuffSpawnTM[] stuffSpawns;
+        public InteractionSpawnTM[] interactionSpawns;
         public StepSpawnTM stepSpawn;
     }
 }

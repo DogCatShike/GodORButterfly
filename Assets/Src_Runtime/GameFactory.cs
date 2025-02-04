@@ -102,5 +102,33 @@ namespace GB
 
             return step;
         }
+
+        public static InteractionEntity Interaction_CreateBySpawn(GameContext ctx, InteractionSpawnTM spawnTM)
+        {
+            int typeID = spawnTM.so.tm.typeID;
+
+            bool has = ctx.templateCore.TryGetInteraction(typeID, out var tm);
+            if (!has)
+            {
+                Debug.LogError("Interaction_Create: tm is null" + typeID);
+                return null;
+            }
+            GameObject prefab = ctx.assetsCore.Entity_GetInteraction(tm.typeID);
+            GameObject go = GameObject.Instantiate(prefab);
+            InteractionEntity interaction = go.GetComponent<InteractionEntity>();
+
+            interaction.Ctor();
+            interaction.idSig = ctx.gameEntity.stuffID;
+            interaction.typeID = tm.typeID;
+
+            interaction.stuffTypeID = tm.stuffTypeID;
+
+            interaction.times = tm.times;
+
+            interaction.TF_Transfrom(spawnTM.position);
+            interaction.TF_Rotation(spawnTM.rotation);
+
+            return interaction;
+        }
     }
 }

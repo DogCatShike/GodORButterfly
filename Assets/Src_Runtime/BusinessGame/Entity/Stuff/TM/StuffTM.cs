@@ -10,7 +10,7 @@ namespace GB
         public int typeID;
 
         public int spawnStageID;
-        public bool isPick;
+        public bool isPick; // 每次重启都要手动取消勾选, 待改
         
         public Sprite sprite;
         public string description;

@@ -15,6 +15,10 @@ MonoBehaviour:
   tm:
     stageID: 12
     stuffSpawns: []
+    interactionSpawns:
+    - so: {fileID: 11400000, guid: 3d84e581d8f4d5844b93baff4df0a02a, type: 2}
+      position: {x: 0, y: -2.5, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
     stepSpawn:
       so: {fileID: 11400000, guid: 72d19562fbb9de842800bcef22a77714, type: 2}
       position: {x: 20, y: -8.5, z: 0}

@@ -18,11 +18,15 @@ namespace GB
         public Dictionary<int, StepTM> steps;
         public AsyncOperationHandle stepHandle;
 
+        public Dictionary<int, InteractionTM> interactions;
+        public AsyncOperationHandle interactionHandle;
+
         public TemplateCore()
         {
             stages = new Dictionary<int, StageTM>();
             stuffs = new Dictionary<int, StuffTM>();
             steps = new Dictionary<int, StepTM>();
+            interactions = new Dictionary<int, InteractionTM>();
         }
 
         public async Task LoadAll()
@@ -72,6 +76,21 @@ namespace GB
 
                 stepHandle = handle;
             }
+            {
+                AssetLabelReference labelReference = new AssetLabelReference();
+
+                labelReference.labelString = "So_Interaction";
+                var handle = Addressables.LoadAssetsAsync<InteractionSO>(labelReference, null);
+                var all = await handle.Task;
+
+                foreach (var so in all)
+                {
+                    var tm = so.tm;
+                    interactions.Add(tm.typeID, tm);
+                }
+
+                interactionHandle = handle;
+            }
         }
 
         public bool TryGetStage(int stageID, out StageTM stage)
@@ -87,6 +106,11 @@ namespace GB
         public bool TryGetStep(int typeID, out StepTM step)
         {
             return steps.TryGetValue(typeID, out step);
+        }
+
+        public bool TryGetInteraction(int typeID, out InteractionTM interaction)
+        {
+            return interactions.TryGetValue(typeID, out interaction);
         }
 
         public void UnLoadAll()

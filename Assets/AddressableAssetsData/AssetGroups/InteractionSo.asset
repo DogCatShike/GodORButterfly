@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: InteractionSo
+  m_EditorClassIdentifier: 
+  m_GroupName: InteractionSo
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 2e4e70a9f92c70d4c8203f13ada21579
+  m_SerializeEntries:
+  - m_GUID: 3d84e581d8f4d5844b93baff4df0a02a
+    m_Address: InteractionSo_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - So_Interaction
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 79ff86b76ba3c6c4faff67621f19701e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: b80bf27824d643b40a65c8c5d0a1e9e8, type: 2}
+    - {fileID: 11400000, guid: 2ee0ef42c95a2d94f8f61779602094b0, type: 2}
