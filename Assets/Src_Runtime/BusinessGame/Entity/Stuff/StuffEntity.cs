@@ -16,6 +16,7 @@ namespace GB {
         public void Ctor() {
             iconRenderer.sprite = icon;
         }
+        
         // 设置位置旋转
         public void TF_Transfrom(Vector3 pos) {
             transform.position = pos;

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace GB {
@@ -64,6 +65,18 @@ namespace GB {
 
         void OnTriggerExit2D(Collider2D other) {
             OnTriggerExitHandle.Invoke(this, other);
+        }
+
+        IEnumerator Panel_CantUse_Close(GameContext ctx)
+        {
+            yield return new WaitForSeconds(1.5f);
+            ctx.uiApp.Panel_CantUse_Close();
+        }
+
+        public void Panel_CantUse_Show(GameContext ctx)
+        {
+            ctx.uiApp.Panel_CantUse_Open();
+            StartCoroutine(Panel_CantUse_Close(ctx));
         }
     }
 }

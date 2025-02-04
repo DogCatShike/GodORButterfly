@@ -65,7 +65,6 @@ namespace GB {
         public static void PressESwitchingScenes(GameContext ctx, RoleEntity role) {
             var game = ctx.gameEntity;
             var step = game.currentStep;
-            var interaction = game.currentInteraction;
             if (step == null) {
                 return;
             }

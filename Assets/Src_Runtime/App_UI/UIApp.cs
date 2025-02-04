@@ -200,5 +200,31 @@ namespace GB {
             }
             tip.TearDown();
         }
+
+        public void Panel_CantUse_Open() {
+            Panel_CantUse panel = ctx.panel_CantUse;
+
+            if (panel == null) {
+                GameObject go = ctx.assetsCore.Panel_GetCantUse();
+                if (!go) {
+                    Debug.LogError("Panel_CantUse not found");
+                    return;
+                }
+
+                panel = GameObject.Instantiate(go, ctx.canvas.transform).GetComponent<Panel_CantUse>();
+                panel.Ctor();
+            }
+
+            ctx.panel_CantUse = panel;
+        }
+
+        public void Panel_CantUse_Close() {
+            Panel_CantUse panel = ctx.panel_CantUse;
+
+            if (panel == null) {
+                return;
+            }
+            panel.TearDown();
+        }
     }
 }

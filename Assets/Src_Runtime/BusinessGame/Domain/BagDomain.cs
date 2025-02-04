@@ -64,6 +64,7 @@ namespace GB {
 
             if (interaction == null) {
                 Debug.LogError("找不到交互: ");
+                owner.Panel_CantUse_Show(ctx);
                 return;
             }
 
@@ -71,18 +72,20 @@ namespace GB {
 
             if (typeID != item.typeID) {
                 Debug.Log("物品类型不匹配");
+                owner.Panel_CantUse_Show(ctx);
                 return;
             }
 
             if (interaction.times <= 0) {
-                Debug.Log("交互次数不足  TODO:这里要打开UI提示");
+                Debug.Log("交互次数不足");
+                owner.Panel_CantUse_Show(ctx);
                 return;
             }
 
             // 使用物品
             // TODO：根据物品类型，执行不同的逻辑
             Debug.Log("使用物品  ");
-            // interaction.times -= 1;
+            interaction.times -= 1;
             owner.BagCom.Remove(id);
             Update(ctx, owner.BagCom);
 
