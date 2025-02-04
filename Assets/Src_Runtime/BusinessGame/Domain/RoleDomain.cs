@@ -48,6 +48,7 @@ namespace GB {
         public static void PressESwitchingScenes(GameContext ctx, RoleEntity role) {
             var game = ctx.gameEntity;
             var step = game.currentStep;
+            var interaction = game.currentInteraction;
             if (step == null) {
                 return;
             }
@@ -71,7 +72,6 @@ namespace GB {
                 // 拾取物品
                 if (isOpen) {
                     ctx.gameEntity.currentStuff = other.GetComponent<StuffEntity>();
-                    ctx.gameEntity.currentStep = null;
                 }
 
             } else if (other.CompareTag("Step")) {
@@ -81,9 +81,15 @@ namespace GB {
 
                 if (isOpen) {
                     ctx.gameEntity.currentStep = other.GetComponent<StepEntity>();
-                    ctx.gameEntity.currentStuff = null;
                 }
+            } else if (other.CompareTag("Interaction")) {
+                ui.Tip_UseStuff_Open(role);
 
+                bool isOpen = ui.isUseStuffOpened();
+
+                if (isOpen) {
+                    ctx.gameEntity.currentInteraction = other.GetComponent<InteractionEntity>();
+                }
             }
         }
 
@@ -92,7 +98,13 @@ namespace GB {
                 ctx.uiApp.Tip_PressE_Close();
             } else if (other.CompareTag("Step")) {
                 ctx.uiApp.Tip_PressE_Close();
+            } else if (other.CompareTag("Interaction")) {
+                ctx.uiApp.Tip_UseStuff_Close();
             }
+
+            ctx.gameEntity.currentStuff = null;
+            ctx.gameEntity.currentStep = null;
+            ctx.gameEntity.currentInteraction = null;
         }
 
         #endregion 

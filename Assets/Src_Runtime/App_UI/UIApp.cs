@@ -160,5 +160,46 @@ namespace GB {
             }
             tip.TearDown();
         }
+
+        public void Tip_UseStuff_Open(RoleEntity role)
+        {
+            Tip_UseStuff tip = ctx.tip_UseStuff;
+
+            if (tip == null)
+            {
+                GameObject go = ctx.assetsCore.Tip_GetUseStuff();
+                if (!go)
+                {
+                    Debug.LogError("Tip_UseStuff not found");
+                    return;
+                }
+
+                tip = GameObject.Instantiate(go, ctx.canvas.transform).GetComponent<Tip_UseStuff>();
+                tip.Ctor();
+
+                Vector2 pos = role.transform.localPosition;
+                pos.y = -30;
+                tip.transform.localPosition = pos;
+            }
+
+            ctx.tip_UseStuff = tip;
+        }
+
+        public bool isUseStuffOpened()
+        {
+            Tip_UseStuff tip = ctx.tip_UseStuff;
+            return tip != null;
+        }
+
+        public void Tip_UseStuff_Close()
+        {
+            Tip_UseStuff tip = ctx.tip_UseStuff;
+
+            if (tip == null)
+            {
+                return;
+            }
+            tip.TearDown();
+        }
     }
 }

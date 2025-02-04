@@ -123,5 +123,11 @@ namespace GB
             panels.TryGetValue("Tip_PressE", out GameObject panel);
             return panel;
         }
+
+        public GameObject Tip_GetUseStuff()
+        {
+            panels.TryGetValue("Tip_UseStuff", out GameObject panel);
+            return panel;
+        }
     }
 }

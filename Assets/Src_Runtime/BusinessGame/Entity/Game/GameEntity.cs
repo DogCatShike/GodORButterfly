@@ -16,6 +16,7 @@ namespace GB {
         // 临时数据 
         public StuffEntity currentStuff;
         public StepEntity currentStep;
+        public InteractionEntity currentInteraction;
 
 
         public GameEntity() {
@@ -31,6 +32,7 @@ namespace GB {
 
             currentStuff = null;
             currentStep = null;
+            currentInteraction = null;
         }
     }
 }

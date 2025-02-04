@@ -12,6 +12,7 @@ namespace GB {
         public Panel_Bag panel_Bag;
 
         public Tip_PressE tip_PressE;
+        public Tip_UseStuff tip_UseStuff;
 
         //core
         public AssetsCore assetsCore;

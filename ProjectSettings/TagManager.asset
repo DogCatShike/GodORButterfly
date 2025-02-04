@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Step
   - Stuff
+  - Interaction
   layers:
   - Default
   - TransparentFX
