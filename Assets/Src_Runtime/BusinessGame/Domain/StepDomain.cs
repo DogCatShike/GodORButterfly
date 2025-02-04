@@ -54,7 +54,7 @@ namespace GB
             {
                 StuffSpawnTM spawnTM = tm.stuffSpawns[i];
 
-                if (spawnTM.so.tm.spawnStageID == game.mapID)
+                if (spawnTM.so.tm.spawnStageID == game.mapID && !spawnTM.so.tm.isPick)
                 {
                     StuffDomain.SpawnBySpawn(ctx, spawnTM.so.tm.typeID, spawnTM);
                 }
@@ -63,7 +63,6 @@ namespace GB
             MapDomain.UnSpawn(ctx, map);
 
             // 玩家要重置位置吗?
-            // TODO: 判断物品是否被拾取，已拾取则不生成
         }
     }
 }

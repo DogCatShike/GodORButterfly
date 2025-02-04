@@ -39,6 +39,10 @@ namespace GB {
             // 拾取物品
             BagDomain.OnPick(ctx, role, stuff);
             game.currentStuff = null;
+
+            int typeID = stuff.typeID;
+            bool has = ctx.templateCore.TryGetStuff(typeID, out StuffTM tm);
+            tm.isPick = true;
         }
 
         public static void PressESwitchingScenes(GameContext ctx, RoleEntity role) {

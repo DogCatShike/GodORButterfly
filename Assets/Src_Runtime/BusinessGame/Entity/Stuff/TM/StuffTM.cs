@@ -10,6 +10,7 @@ namespace GB
         public int typeID;
 
         public int spawnStageID;
+        public bool isPick;
         
         public Sprite sprite;
         public string description;
