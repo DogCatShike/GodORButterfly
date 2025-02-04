@@ -38,8 +38,6 @@ namespace GB {
                 return;
             }
 
-            Debug.Log("RoleUseStuff");
-
             // TODO：ID
             BagDomain.OnOwnerUse(ctx, game.currentStuffID);
 

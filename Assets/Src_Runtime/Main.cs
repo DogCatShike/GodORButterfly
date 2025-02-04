@@ -61,8 +61,17 @@ namespace GB {
 
 
             events.OnUseHandle += (id) => {
-                Debug.Log("Use Item:" + id);
                 game.currentStuffID = id;
+                var ui = ctx.uiApp;
+                RoleEntity role = ctx.Get_Role();
+                BagComponent bag = role.BagCom;
+
+
+                bag.TryGet(game.currentStuffID, out BagItemModel stuff);
+
+                if (stuff != null) {
+                    ui.Bag_SetTextSprite(stuff.description, stuff.icon);
+                }
             };
         }
 

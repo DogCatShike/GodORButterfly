@@ -135,6 +135,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   group: {fileID: 1067350391576596005}
   elementPrefab: {fileID: -5366336709797172858, guid: 5ad249fad944a994d9b03967dc02c537, type: 3}
+  textcontent: {fileID: 1170275569450865020}
+  sprite: {fileID: 6874971002012341928}
 --- !u!1 &2655050450851771918
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,7 +440,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -429.99997, y: 66.49989}
+  m_AnchoredPosition: {x: -430, y: 66.49989}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1067350391576596005
@@ -539,7 +541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.52089214, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -860,7 +862,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 6899367063184911838}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.99999815
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

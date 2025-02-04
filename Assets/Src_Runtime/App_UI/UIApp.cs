@@ -109,6 +109,11 @@ namespace GB {
             ctx.panel_Bag = panel;
         }
 
+        public void Bag_SetTextSprite(string content, Sprite sprite) {
+            Panel_Bag bag = ctx.panel_Bag;
+            bag?.Set_TextSprite(content, sprite);
+        }
+
         public bool Bag_IsOpened() {
             Panel_Bag bag = ctx.panel_Bag;
             return bag != null;
@@ -161,15 +166,12 @@ namespace GB {
             tip.TearDown();
         }
 
-        public void Tip_UseStuff_Open(RoleEntity role)
-        {
+        public void Tip_UseStuff_Open(RoleEntity role) {
             Tip_UseStuff tip = ctx.tip_UseStuff;
 
-            if (tip == null)
-            {
+            if (tip == null) {
                 GameObject go = ctx.assetsCore.Tip_GetUseStuff();
-                if (!go)
-                {
+                if (!go) {
                     Debug.LogError("Tip_UseStuff not found");
                     return;
                 }
@@ -185,18 +187,15 @@ namespace GB {
             ctx.tip_UseStuff = tip;
         }
 
-        public bool isUseStuffOpened()
-        {
+        public bool isUseStuffOpened() {
             Tip_UseStuff tip = ctx.tip_UseStuff;
             return tip != null;
         }
 
-        public void Tip_UseStuff_Close()
-        {
+        public void Tip_UseStuff_Close() {
             Tip_UseStuff tip = ctx.tip_UseStuff;
 
-            if (tip == null)
-            {
+            if (tip == null) {
                 return;
             }
             tip.TearDown();

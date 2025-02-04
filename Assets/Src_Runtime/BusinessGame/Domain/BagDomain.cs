@@ -17,7 +17,7 @@ namespace GB {
 
         public static void Open(GameContext ctx, BagComponent bag) {
             var ui = ctx.uiApp;
-
+            var game = ctx.gameEntity;
             // 空格子
             ui.Bag_Open(bag.GetMaxSlot());
 
@@ -26,6 +26,13 @@ namespace GB {
             bag.ForEach(item => {
                 ui.Bag_Add(item.id, item.icon, item.count);
             });
+
+            bag.TryGet(game.currentStuffID, out BagItemModel stuff);
+
+            if (stuff != null) {
+                ui.Bag_SetTextSprite(stuff.description, stuff.icon);
+            }
+
         }
 
         // 更新背包
@@ -95,7 +102,7 @@ namespace GB {
                 item.typeID = stuff.typeID;
                 item.count = stuff.count;
                 item.icon = stuff.icon;
-                Debug.Log("拾取物品: " + item.typeID + " " + item.icon + " " + item.count);
+                item.description = stuff.description;
                 return item;
             });
 
@@ -103,7 +110,6 @@ namespace GB {
                 // 2. 移除 Stuff
                 StuffDomain.UnSpawn(ctx, stuff);
                 game.currentStuffID = 0;
-                Debug.Log("拾取物品成功");
             }
             // 3. 如果背包是打开着的, 则刷新背包
             Update(ctx, bagCom);

@@ -11,6 +11,8 @@ namespace GB {
 
         public int count;
 
+        public string description;
+
 
     }
 }

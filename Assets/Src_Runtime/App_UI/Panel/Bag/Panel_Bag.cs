@@ -12,6 +12,10 @@ namespace GB {
         [SerializeField] HorizontalLayoutGroup group;
         [SerializeField] Panel_BagElement elementPrefab;
 
+        [SerializeField] Text textcontent;
+        [SerializeField] Image sprite;
+
+
         List<Panel_BagElement> elements;
 
         public Action<int> OnUseHandler;
@@ -22,6 +26,11 @@ namespace GB {
 
         void OnUse(int id) {
             OnUseHandler?.Invoke(id);
+        }
+
+        public void Set_TextSprite(string content, Sprite sprite) {
+            textcontent.text = content;
+            this.sprite.sprite = sprite;
         }
 
         // maxSlot: 最大格子数
