@@ -41,6 +41,7 @@ namespace GB {
         public static void OnOwnerUse(GameContext ctx, int id) {
             // 找到主角
             RoleEntity owner = ctx.Get_Role();
+            InteractionEntity interaction = ctx.gameEntity.currentInteraction;
 
             if (owner == null) {
                 Debug.LogError("找不到主角: ");
@@ -54,13 +55,32 @@ namespace GB {
                 return;
             }
 
+            if (interaction == null) {
+                Debug.LogError("找不到交互: ");
+                return;
+            }
+
+            int typeID = interaction.typeID;
+
+            if (typeID != item.typeID) {
+                Debug.Log("物品类型不匹配");
+                return;
+            }
+
+            if (interaction.times <= 0) {
+                Debug.Log("交互次数不足  TODO:这里要打开UI提示");
+                return;
+            }
+
             // 使用物品
             // TODO：根据物品类型，执行不同的逻辑
+            Debug.Log("使用物品  使用次数-1,删除物品");
         }
 
         // 拾取物品
         public static void OnPick(GameContext ctx, RoleEntity role, StuffEntity stuff) {
             var bagCom = role.BagCom;
+            var game = ctx.gameEntity;
 
             // 1. 拾取物品
             bool isPicked = bagCom.Add(stuff.typeID, stuff.count, () => {
@@ -78,6 +98,7 @@ namespace GB {
             if (isPicked) {
                 // 2. 移除 Stuff
                 StuffDomain.UnSpawn(ctx, stuff);
+                game.currentStuffID = 0;
                 Debug.Log("拾取物品成功");
             }
             // 3. 如果背包是打开着的, 则刷新背包

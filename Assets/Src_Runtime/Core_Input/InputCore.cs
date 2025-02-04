@@ -9,6 +9,7 @@ namespace GB {
         public bool isKeyDownEsc;
         public bool isKeyDownTab;
         public bool isKeyDownE;
+        public bool isKeyEnter;
 
         public InputCore() {
             input_Role = new InputController_Player();
@@ -46,11 +47,20 @@ namespace GB {
                     isKeyDownTab = false;
                 }
             }
+            // e键
             {
                 if (Player.PressE.triggered) {
                     isKeyDownE = true;
                 } else {
                     isKeyDownE = false;
+                }
+            }
+            // Enter键
+            {
+                if (Player.PressEnter.triggered) {
+                    isKeyEnter = true;
+                } else {
+                    isKeyEnter = false;
                 }
             }
         }

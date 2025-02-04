@@ -1,10 +1,9 @@
 using System;
 using UnityEngine;
 
-namespace GB
-{
-    public class GameDomain
-    {
+namespace GB {
+    public class GameDomain {
+
 
     }
 }

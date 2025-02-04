@@ -71,6 +71,15 @@ public partial class @InputController_Player: IInputActionCollection2, IDisposab
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""PressEnter"",
+                    ""type"": ""Button"",
+                    ""id"": ""4d5281db-7c4c-4528-b450-3499c271499b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -150,6 +159,17 @@ public partial class @InputController_Player: IInputActionCollection2, IDisposab
                     ""action"": ""PressE"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""add8e541-2564-4ee4-8c8d-82f725da0241"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PressEnter"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -163,6 +183,7 @@ public partial class @InputController_Player: IInputActionCollection2, IDisposab
         m_Player_PressEsc = m_Player.FindAction("PressEsc", throwIfNotFound: true);
         m_Player_PressTab = m_Player.FindAction("PressTab", throwIfNotFound: true);
         m_Player_PressE = m_Player.FindAction("PressE", throwIfNotFound: true);
+        m_Player_PressEnter = m_Player.FindAction("PressEnter", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -229,6 +250,7 @@ public partial class @InputController_Player: IInputActionCollection2, IDisposab
     private readonly InputAction m_Player_PressEsc;
     private readonly InputAction m_Player_PressTab;
     private readonly InputAction m_Player_PressE;
+    private readonly InputAction m_Player_PressEnter;
     public struct PlayerActions
     {
         private @InputController_Player m_Wrapper;
@@ -238,6 +260,7 @@ public partial class @InputController_Player: IInputActionCollection2, IDisposab
         public InputAction @PressEsc => m_Wrapper.m_Player_PressEsc;
         public InputAction @PressTab => m_Wrapper.m_Player_PressTab;
         public InputAction @PressE => m_Wrapper.m_Player_PressE;
+        public InputAction @PressEnter => m_Wrapper.m_Player_PressEnter;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -262,6 +285,9 @@ public partial class @InputController_Player: IInputActionCollection2, IDisposab
             @PressE.started += instance.OnPressE;
             @PressE.performed += instance.OnPressE;
             @PressE.canceled += instance.OnPressE;
+            @PressEnter.started += instance.OnPressEnter;
+            @PressEnter.performed += instance.OnPressEnter;
+            @PressEnter.canceled += instance.OnPressEnter;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -281,6 +307,9 @@ public partial class @InputController_Player: IInputActionCollection2, IDisposab
             @PressE.started -= instance.OnPressE;
             @PressE.performed -= instance.OnPressE;
             @PressE.canceled -= instance.OnPressE;
+            @PressEnter.started -= instance.OnPressEnter;
+            @PressEnter.performed -= instance.OnPressEnter;
+            @PressEnter.canceled -= instance.OnPressEnter;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -305,5 +334,6 @@ public partial class @InputController_Player: IInputActionCollection2, IDisposab
         void OnPressEsc(InputAction.CallbackContext context);
         void OnPressTab(InputAction.CallbackContext context);
         void OnPressE(InputAction.CallbackContext context);
+        void OnPressEnter(InputAction.CallbackContext context);
     }
 }

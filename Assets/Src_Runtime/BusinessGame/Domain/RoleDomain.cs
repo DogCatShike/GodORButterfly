@@ -27,6 +27,25 @@ namespace GB {
             }
         }
 
+        // 主角使用道具
+        public static void RoleUseStuff(GameContext ctx, RoleEntity role) {
+            var input = ctx.inputCore;
+            var bagCom = role.BagCom;
+            var ui = ctx.uiApp;
+            var game = ctx.gameEntity;
+
+            if (!ui.Bag_IsOpened()) {
+                return;
+            }
+
+            Debug.Log("RoleUseStuff");
+
+            // TODO：ID
+            BagDomain.OnOwnerUse(ctx, game.currentStuffID);
+
+
+        }
+
         // 捡起物品
         public static void PressEPick(GameContext ctx, RoleEntity role) {
             var bagCom = role.BagCom;

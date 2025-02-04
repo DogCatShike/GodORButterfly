@@ -8,6 +8,8 @@ namespace GB {
     public class BagComponent {
         public BagItemModel[] all;
 
+        public BagItemModel currentItem;
+        
         public BagComponent() {
 
         }
@@ -41,6 +43,8 @@ namespace GB {
             return true;
 
         }
+
+
         // 查找物品
         public bool TryGet(int id, out BagItemModel item) {
             for (int i = 0; i < all.Length; i += 1) {
@@ -70,7 +74,6 @@ namespace GB {
         public void ForEach(Action<BagItemModel> callback) {
             for (int i = 0; i < all.Length; i += 1) {
                 BagItemModel item = all[i];
-                Debug.Log("遍历物品: " + item);
                 if (item != null) {
                     callback.Invoke(item);
                 }

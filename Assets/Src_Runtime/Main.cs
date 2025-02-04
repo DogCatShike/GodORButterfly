@@ -3,18 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace GB
-{
-    public class Main : MonoBehaviour
-    {
+namespace GB {
+    public class Main : MonoBehaviour {
         GameContext ctx;
         [SerializeField] Canvas screenCanvas;
 
         bool isTearDown = false;
         bool isInit = false;
 
-        void Awake()
-        {
+        void Awake() {
             // Init
             ctx = new GameContext();
             Canvas canvas = screenCanvas.GetComponent<Canvas>();
@@ -24,8 +21,7 @@ namespace GB
             //Binding
             Binding();
 
-            Action action = async () =>
-            {
+            Action action = async () => {
 
                 await ctx.assetsCore.LoadAll();
                 await ctx.templateCore.LoadAll();
@@ -37,42 +33,41 @@ namespace GB
             action.Invoke();
         }
 
-        void Binding()
-        {
+        void Binding() {
             var events = ctx.uiApp.GetEvents();
             var game = ctx.gameEntity;
 
-            events.OnStartGameHandle += () =>
-            {
+            events.OnStartGameHandle += () => {
                 ctx.uiApp.Panel_StartGame_Close();
                 GameBusiness.Enter(ctx);
             };
 
-            events.OnQuitGameHandle += () =>
-            {
+            events.OnQuitGameHandle += () => {
                 Application.Quit();
                 Debug.Log("Quit Game");
             };
 
-            events.OnContinueGameHandle += () =>
-            {
+            events.OnContinueGameHandle += () => {
                 ctx.uiApp.Panel_PauseGame_Close();
                 Time.timeScale = 1;
             };
 
-            events.OnBackGameHandle += () =>
-            {
+            events.OnBackGameHandle += () => {
                 ctx.uiApp.Panel_PauseGame_Close();
                 Debug.Log("Back to Login");
 
                 //TODO: 重置游戏, 返回主界面
             };
+
+
+            events.OnUseHandle += (id) => {
+                Debug.Log("Use Item:" + id);
+                game.currentStuffID = id;
+            };
         }
 
-        void Update()
-        {
-            if (!isInit)
-            {
+        void Update() {
+            if (!isInit) {
                 return;
             }
 
@@ -80,30 +75,23 @@ namespace GB
             ctx.inputCore.Process();
             var game = ctx.gameEntity;
 
-            if (game.state == GameState.LoginEnter)
-            {
+            if (game.state == GameState.LoginEnter) {
                 LoginBusiness.Tick(ctx, dt);
-            }
-            else if (game.state == GameState.Game)
-            {
+            } else if (game.state == GameState.Game) {
                 GameBusiness.Tick(ctx, dt);
             }
         }
 
-        void OnDestroy()
-        {
+        void OnDestroy() {
             TearDown();
         }
 
-        void ApplciationQuit()
-        {
+        void ApplciationQuit() {
             TearDown();
         }
 
-        void TearDown()
-        {
-            if (isTearDown)
-            {
+        void TearDown() {
+            if (isTearDown) {
                 return;
             }
             isTearDown = true;

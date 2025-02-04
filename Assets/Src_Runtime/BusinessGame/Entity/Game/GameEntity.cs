@@ -18,6 +18,8 @@ namespace GB {
         public StepEntity currentStep;
         public InteractionEntity currentInteraction;
 
+        public int currentStuffID;
+
 
         public GameEntity() {
             restFixTime = 0;
@@ -33,6 +35,8 @@ namespace GB {
             currentStuff = null;
             currentStep = null;
             currentInteraction = null;
+
+            currentStuffID = -1;
         }
     }
 }
