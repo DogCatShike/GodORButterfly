@@ -19,6 +19,7 @@ namespace GB
         public StuffRepository stuffRepository;
         public StepRepository stepRepository;
         public InteractionRepository interactionRepository;
+        public StageRepository stageRepository;
 
         public GameContext()
         {
@@ -34,6 +35,7 @@ namespace GB
             stuffRepository = new StuffRepository();
             stepRepository = new StepRepository();
             interactionRepository = new InteractionRepository();
+            stageRepository = new StageRepository();
         }
 
         public void Inject(Canvas canvas)
@@ -51,6 +53,12 @@ namespace GB
         {
             mapRepository.TryGet(gameEntity.mapID, out MapEntity map);
             return map;
+        }
+
+        public StageEntity Get_Stage()
+        {
+            stageRepository.TryGet(gameEntity.mapID, out StageEntity stage);
+            return stage;
         }
     }
 }

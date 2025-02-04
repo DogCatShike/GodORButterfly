@@ -58,8 +58,6 @@ namespace GB {
             game.currentStuff = null;
 
             int typeID = stuff.typeID;
-            bool has = ctx.templateCore.TryGetStuff(typeID, out StuffTM tm);
-            tm.isPick = true;
         }
 
         public static void PressESwitchingScenes(GameContext ctx, RoleEntity role) {
@@ -79,6 +77,7 @@ namespace GB {
         public static void OnTriggerEnter(GameContext ctx, RoleEntity role, Collider2D other) {
             var ui = ctx.uiApp;
             var input = ctx.inputCore;
+            var stage = ctx.Get_Stage();
 
             if (other.CompareTag("Stuff")) {
                 ui.Tip_PressE_Open(role);

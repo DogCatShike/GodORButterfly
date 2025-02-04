@@ -12,6 +12,8 @@ namespace GB {
 
             bool has = ctx.templateCore.TryGetStage(11, out StageTM tm);
             MapDomain.Spawn(ctx, 11);
+            
+            StageEntity stage = StageDomain.Spawn(ctx, 11);
 
             for (int i = 0; i < tm.stuffSpawns.Length; i++) {
                 StuffSpawnTM spawnTM = tm.stuffSpawns[i];
@@ -33,6 +35,29 @@ namespace GB {
 
             StepEntity step = StepDomain.SpawnBySpawn(ctx, tm.stepSpawn);
 
+            int stuffLen = ctx.stuffRepository.TakeAll(out StuffEntity[] stuffs);
+            for (int i = 0; i < stuffLen; i++)
+            {
+                bool hasStuff = StageDomain.TryGetStuff(stage, stuffs[i].typeID, out bool isPicked);
+                StuffEntity stuff = stuffs[i];
+                if (hasStuff)
+                {
+                    StageDomain.RemoveStuff(stage, stuff);
+                }
+                StageDomain.AddStuff(stage, stuff);
+            }
+
+            int interactionLen = ctx.interactionRepository.TakeAll(out InteractionEntity[] interactions);
+            for (int i = 0; i < interactionLen; i++)
+            {
+                bool hasInteraction = StageDomain.TryGetInteraction(stage, interactions[i].typeID, out int times);
+                InteractionEntity interaction = interactions[i];
+                if (hasInteraction)
+                {
+                    StageDomain.RemoveInteraction(stage, interaction);
+                }
+                StageDomain.AddInteraction(stage, interaction);
+            }
         }
 
         public static void Tick(GameContext ctx, float dt) {

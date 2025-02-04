@@ -95,6 +95,7 @@ namespace GB {
         public static void OnPick(GameContext ctx, RoleEntity role, StuffEntity stuff) {
             var bagCom = role.BagCom;
             var game = ctx.gameEntity;
+            var stage = ctx.Get_Stage();
 
             // 1. 拾取物品
             bool isPicked = bagCom.Add(stuff.typeID, stuff.count, () => {
@@ -111,6 +112,14 @@ namespace GB {
 
             if (isPicked) {
                 // 2. 移除 Stuff
+                bool hasStuff = StageDomain.TryGetStuff(stage, stuff.typeID, out bool isPickedInStage);
+                if (hasStuff)
+                {
+                    StageDomain.RemoveStuff(stage, stuff);
+                }
+                stuff.isPicked = true;
+                StageDomain.AddStuff(stage, stuff);
+                
                 StuffDomain.UnSpawn(ctx, stuff);
                 game.currentStuffID = 0;
             }

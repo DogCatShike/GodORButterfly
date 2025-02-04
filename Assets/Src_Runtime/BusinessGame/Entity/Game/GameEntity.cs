@@ -10,7 +10,7 @@ namespace GB {
         public int ownerID;
         public int mapID;
         public int stuffID;
-        public int stepID; // 没必要吧，这种唯一的东西
+        public int stepID;
         public int itemIDRecord;
 
         // 临时数据 

@@ -109,12 +109,37 @@ namespace GB {
 
             interaction.stuffTypeID = tm.stuffTypeID;
 
-            interaction.times = tm.times;
-
             interaction.TF_Transfrom(spawnTM.position);
             interaction.TF_Rotation(spawnTM.rotation);
 
             return interaction;
+        }
+
+        public static StageEntity Stage_Create(GameContext ctx, int stageID) {
+            bool has = ctx.stageRepository.TryGet(stageID, out var entity);
+
+            if (!has)
+            {
+                GameObject prefab = ctx.assetsCore.Entity_GetStage();
+                if (prefab == null) {
+                    Debug.LogError("Stage prefab is null");
+                }
+
+                GameObject go = GameObject.Instantiate(prefab);
+                StageEntity stage = go.GetComponent<StageEntity>();
+
+                string n = "Entity_Stage_" + stageID;
+                if (go.name != n) {
+                    go.name = n;
+                }
+
+                stage.Ctor();
+                stage.stageID = stageID;
+
+                return stage;
+            }
+
+            return null;
         }
     }
 }

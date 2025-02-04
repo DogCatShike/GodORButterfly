@@ -14,7 +14,7 @@ namespace GB
 
         public void Ctor()
         {
-
+            
         }
 
         public void TF_Transfrom(Vector3 pos)

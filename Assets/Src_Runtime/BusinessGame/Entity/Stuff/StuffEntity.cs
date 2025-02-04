@@ -9,6 +9,7 @@ namespace GB {
         public int typeID;
 
         public int count;
+        public bool isPicked;
 
         public Sprite icon;
         public string description;

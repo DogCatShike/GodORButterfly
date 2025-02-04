@@ -86,6 +86,11 @@ namespace GB {
             return entity;
         }
 
+        public GameObject Entity_GetStage() {
+            entities.TryGetValue("Entity_Stage", out GameObject entity);
+            return entity;
+        }
+
         //UI
         public GameObject Panel_GetStartGame() {
             panels.TryGetValue("Panel_StartGame", out GameObject panel);

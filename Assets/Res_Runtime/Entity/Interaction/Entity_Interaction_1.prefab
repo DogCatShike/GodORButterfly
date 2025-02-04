@@ -101,7 +101,7 @@ MonoBehaviour:
   idSig: 0
   typeID: 0
   stuffTypeID: 0
-  times: 0
+  times: 1
 --- !u!61 &6473643989090223802
 BoxCollider2D:
   m_ObjectHideFlags: 0
