@@ -32,6 +32,7 @@ namespace GB {
             }
 
             StepEntity step = StepDomain.SpawnBySpawn(ctx, tm.stepSpawn);
+
         }
 
         public static void Tick(GameContext ctx, float dt) {

@@ -17,5 +17,5 @@ MonoBehaviour:
     typeID: 2
     spawnStageID: 11
     isPick: 1
-    sprite: {fileID: 21300000, guid: 13ddd4575d64d9342a1cd67f8f0d5bfc, type: 3}
+    sprite: {fileID: 21300000, guid: c8f70dcc6904cc2499a2d06979d559b2, type: 3}
     description: .........

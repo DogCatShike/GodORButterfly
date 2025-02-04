@@ -5,10 +5,8 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-namespace GB
-{
-    public class AssetsCore
-    {
+namespace GB {
+    public class AssetsCore {
         public Dictionary<string, GameObject> entities;
         public AsyncOperationHandle entitiesHandle;
 
@@ -16,14 +14,12 @@ namespace GB
 
         public AsyncOperationHandle panelsHandle;
 
-        public AssetsCore()
-        {
+        public AssetsCore() {
             entities = new Dictionary<string, GameObject>();
             panels = new Dictionary<string, GameObject>();
         }
 
-        public async Task LoadAll()
-        {
+        public async Task LoadAll() {
             {
                 AssetLabelReference labelReference = new AssetLabelReference();
 
@@ -37,7 +33,7 @@ namespace GB
 
                 entitiesHandle = handle;
             }
-            
+
             {
                 AssetLabelReference labelReference = new AssetLabelReference();
                 labelReference.labelString = "Panel";
@@ -53,79 +49,66 @@ namespace GB
             }
         }
 
-        public void UnLoadAll()
-        {
-            if(entitiesHandle.IsValid())
-            {
+        public void UnLoadAll() {
+            if (entitiesHandle.IsValid()) {
                 Addressables.Release(entitiesHandle);
             }
 
-            if(panelsHandle.IsValid())
-            {
+            if (panelsHandle.IsValid()) {
                 Addressables.Release(panelsHandle);
             }
         }
 
         //Entity
-        public GameObject Entity_GetRole()
-        {
+        public GameObject Entity_GetRole() {
             entities.TryGetValue("Entity_Role", out GameObject entity);
             return entity;
         }
 
-        public GameObject Entity_GetMap(int stageID)
-        {
+        public GameObject Entity_GetMap(int stageID) {
             entities.TryGetValue("Entity_Map_" + stageID, out GameObject entity);
             return entity;
         }
 
-        public GameObject Entity_GetStuff(int typeID)
-        {
-            entities.TryGetValue("Entity_Stuff_" + typeID, out GameObject entity);
+        public GameObject Entity_GetStuff() {
+            entities.TryGetValue("Entity_Stuff", out GameObject entity);
             return entity;
         }
 
-        public GameObject Entity_GetStep(int typeID)
-        {
+        public GameObject Entity_GetStep(int typeID) {
             // 0向上, 1向下
             entities.TryGetValue("Entity_Step_" + typeID, out GameObject entity);
             return entity;
         }
 
-        public GameObject Entity_GetInteraction(int typeID)
-        {
+        public GameObject Entity_GetInteraction(int typeID) {
             entities.TryGetValue("Entity_Interaction_" + typeID, out GameObject entity);
             return entity;
         }
 
         //UI
-        public GameObject Panel_GetStartGame()
-        {
+        public GameObject Panel_GetStartGame() {
             panels.TryGetValue("Panel_StartGame", out GameObject panel);
             return panel;
         }
 
-        public GameObject Panel_GetPauseGame()
-        {
+        public GameObject Panel_GetPauseGame() {
             panels.TryGetValue("Panel_PauseGame", out GameObject panel);
             return panel;
         }
 
-        public GameObject Panel_GetBag()
-        {
+        public GameObject Panel_GetBag() {
             panels.TryGetValue("Panel_Bag", out GameObject panel);
             return panel;
         }
 
-        public GameObject Tip_GetPressE()
-        {
+        public GameObject Tip_GetPressE() {
             // 先用着panels
             panels.TryGetValue("Tip_PressE", out GameObject panel);
             return panel;
         }
 
-        public GameObject Tip_GetUseStuff()
-        {
+        public GameObject Tip_GetUseStuff() {
             panels.TryGetValue("Tip_UseStuff", out GameObject panel);
             return panel;
         }

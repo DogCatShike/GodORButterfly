@@ -74,7 +74,11 @@ namespace GB {
 
             // 使用物品
             // TODO：根据物品类型，执行不同的逻辑
-            Debug.Log("使用物品  使用次数-1,删除物品");
+            Debug.Log("使用物品  ");
+            // interaction.times -= 1;
+            owner.BagCom.Remove(id);
+            Update(ctx, owner.BagCom);
+
         }
 
         // 拾取物品
