@@ -117,6 +117,9 @@ namespace GB {
             MapEntity map = ctx.Get_Map();
             GameObject bg = map.transform.Find("Follow").gameObject;
             CameraDomain.FollowTarget(role.transform, bg, dt);
+
+            // 胜利检测
+            InteractionDomain.ISVictroy(ctx);
         }
 
         public static void LastTick(GameContext ctx, float dt) {

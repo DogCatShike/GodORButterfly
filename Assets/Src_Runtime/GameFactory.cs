@@ -103,11 +103,18 @@ namespace GB {
             GameObject go = GameObject.Instantiate(prefab);
             InteractionEntity interaction = go.GetComponent<InteractionEntity>();
 
+            string n = "Entity_Interaction_" + tm.typeName;
+            if (go.name != n) {
+                go.name = n;
+            }
+
             interaction.Ctor();
             interaction.idSig = ctx.gameEntity.stuffID++;
             interaction.typeID = tm.typeID;
 
             interaction.stuffTypeID = tm.stuffTypeID;
+
+            interaction.isVictory = tm.isVictory;
 
             interaction.TF_Transfrom(spawnTM.position);
             interaction.TF_Rotation(spawnTM.rotation);

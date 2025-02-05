@@ -27,5 +27,31 @@ namespace GB
                 UnSpawn(ctx, interaction);
             }
         }
+
+        public static void ISVictroy(GameContext ctx)
+        {
+            int len = ctx.interactionRepository.TakeAll(out InteractionEntity[] interactions);
+            var game = ctx.gameEntity;
+            int stageID = game.mapID;
+            stageID = stageID / 10;
+            
+            for (int i = 0; i < len; i++)
+            {
+                InteractionEntity interaction = interactions[i];
+                
+                if (interaction.isVictory && interaction.times <= 0)
+                {
+                    if (stageID == game.maxStage)
+                    {
+                        ctx.uiApp.Panel_WinGame_Open();
+                    }
+                    else
+                    {
+                        ctx.uiApp.Panel_NextStage_Open();
+                    }
+                    Time.timeScale = 0;
+                }
+            }
+        }
     }
 }

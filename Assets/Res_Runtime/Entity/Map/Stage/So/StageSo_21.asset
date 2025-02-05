@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5ccdafbb9a8d2e40876f4d3c0940045, type: 3}
+  m_Name: StageSo_21
+  m_EditorClassIdentifier: 
+  tm:
+    stageID: 21
+    stuffSpawns:
+    - so: {fileID: 11400000, guid: 14dea634f7d66d743a959b1a771802dd, type: 2}
+      position: {x: 1, y: -2, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+    interactionSpawns:
+    - so: {fileID: 11400000, guid: 3d84e581d8f4d5844b93baff4df0a02a, type: 2}
+      position: {x: 5, y: -2.5, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+    stepSpawn:
+      so: {fileID: 11400000, guid: e89970f4c1eee534bb1ac49823ad99fc, type: 2}
+      position: {x: 10, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}

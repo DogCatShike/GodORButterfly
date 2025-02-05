@@ -71,8 +71,8 @@ namespace GB {
                 panel.OnContinueGameHandler += () => {
                     ctx.uiEvent.Panel_ContinueGameClick();
                 };
-                panel.OnBackGameHandler += () => {
-                    ctx.uiEvent.Panel_BackGameClick();
+                panel.OnQuitGameHandler += () => {
+                    ctx.uiEvent.Panel_QuitGameClick();
                 };
             }
 
@@ -86,6 +86,68 @@ namespace GB {
                 return;
             }
             panel.TearDown();
+        }
+
+        public void Panel_NextStage_Open()
+        {
+            panel_NextStage panel = ctx.panel_NextStage;
+
+            if (panel == null)
+            {
+                GameObject go = ctx.assetsCore.Panel_GetNextStage();
+                if (!go)
+                {
+                    Debug.LogError("Panel_NextStage not found");
+                    return;
+                }
+
+                panel = GameObject.Instantiate(go, ctx.canvas.transform).GetComponent<panel_NextStage>();
+                panel.Ctor();
+
+                panel.OnNextGameHandler += () => {
+                    ctx.uiEvent.Panel_NextGameClick();
+                };
+                panel.OnQuitGameHandler += () => {
+                    ctx.uiEvent.Panel_QuitGameClick();
+                };
+            }
+
+            ctx.panel_NextStage = panel;
+        }
+
+        public void Panel_NextStage_Close()
+        {
+            panel_NextStage panel = ctx.panel_NextStage;
+
+            if (panel == null)
+            {
+                return;
+            }
+            panel.TearDown();
+        }
+
+        public void Panel_WinGame_Open()
+        {
+            Panel_WinGame panel = ctx.panel_WinGame;
+
+            if (panel == null)
+            {
+                GameObject go = ctx.assetsCore.Panel_GetWinGame();
+                if (!go)
+                {
+                    Debug.LogError("Panel_WinGame not found");
+                    return;
+                }
+
+                panel = GameObject.Instantiate(go, ctx.canvas.transform).GetComponent<Panel_WinGame>();
+                panel.Ctor();
+
+                panel.OnQuitGameHandler += () => {
+                    ctx.uiEvent.Panel_QuitGameClick();
+                };
+            }
+
+            ctx.panel_WinGame = panel;
         }
 
         #region  Bag

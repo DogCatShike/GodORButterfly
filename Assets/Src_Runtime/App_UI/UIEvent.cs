@@ -24,10 +24,10 @@ namespace GB {
             }
         }
 
-        public Action OnBackGameHandle;
-        public void Panel_BackGameClick() {
-            if (OnBackGameHandle != null) {
-                OnBackGameHandle.Invoke();
+        public Action OnNextGameHandle;
+        public void Panel_NextGameClick() {
+            if (OnNextGameHandle != null) {
+                OnNextGameHandle.Invoke();
             }
         }
 

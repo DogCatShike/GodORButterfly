@@ -9,6 +9,8 @@ namespace GB {
         public Panel_StartGame panel_StartGame;
         public Panel_PauseGame panel_PauseGame;
         public Panel_CantUse panel_CantUse;
+        public panel_NextStage panel_NextStage;
+        public Panel_WinGame panel_WinGame;
 
         public Panel_Bag panel_Bag;
 

@@ -2,21 +2,21 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Panel_PauseGame : MonoBehaviour
+public class panel_NextStage : MonoBehaviour
 {
-    [SerializeField] Button btn_ContinueGame;
-    public Action OnContinueGameHandler;
+    [SerializeField] Button btn_NextGame;
+    public Action OnNextGameHandler;
 
     [SerializeField] Button btn_QuitGame;
     public Action OnQuitGameHandler;
 
     public void Ctor()
     {
-        btn_ContinueGame.onClick.AddListener(() =>
+        btn_NextGame.onClick.AddListener(() =>
         {
-            if (OnContinueGameHandler != null)
+            if (OnNextGameHandler != null)
             {
-                OnContinueGameHandler();
+                OnNextGameHandler();
             }
         });
 

@@ -12,6 +12,8 @@ namespace GB
 
         public int times; // 可交互次数
 
+        public bool isVictory;
+
         public void Ctor()
         {
             

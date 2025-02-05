@@ -52,11 +52,15 @@ namespace GB {
                 Time.timeScale = 1;
             };
 
-            events.OnBackGameHandle += () => {
-                ctx.uiApp.Panel_PauseGame_Close();
-                Debug.Log("Back to Login");
-
-                //TODO: 重置游戏, 返回主界面
+            events.OnNextGameHandle += () => {
+                ctx.uiApp.Panel_NextStage_Close();
+                if (ctx.uiApp.Bag_IsOpened())
+                {
+                    ctx.uiApp.Bag_Close();
+                }
+                
+                Time.timeScale = 1;
+                MapDomain.NextStage(ctx);
             };
 
 

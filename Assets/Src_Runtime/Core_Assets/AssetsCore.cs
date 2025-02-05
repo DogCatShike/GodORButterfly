@@ -102,6 +102,16 @@ namespace GB {
             return panel;
         }
 
+        public GameObject Panel_GetNextStage() {
+            panels.TryGetValue("Panel_NextStage", out GameObject panel);
+            return panel;
+        }
+
+        public GameObject Panel_GetWinGame() {
+            panels.TryGetValue("Panel_WinGame", out GameObject panel);
+            return panel;
+        }
+
         public GameObject Panel_GetBag() {
             panels.TryGetValue("Panel_Bag", out GameObject panel);
             return panel;

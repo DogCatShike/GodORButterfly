@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tm:
     typeID: 1
+    typeName: Wells
     spawnStageID: 12
     stuffTypeID: 1
-    times: 1
+    isVictory: 1

@@ -12,6 +12,7 @@ namespace GB {
         public int stuffID;
         public int stepID;
         public int itemIDRecord;
+        public int maxStage; // 最大大关卡数
 
         // 临时数据 
         public StuffEntity currentStuff;
@@ -31,6 +32,7 @@ namespace GB {
             stuffID = 0;
             stepID = 0;
             itemIDRecord = 0;
+            maxStage = 4;
 
             currentStuff = null;
             currentStep = null;
