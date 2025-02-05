@@ -43,16 +43,32 @@ namespace GB
 
         public bool TryGetStuff(int typeID, out bool isPicked)
         {
-            stuffIsPick.TryGetValue(typeID, out isPicked);
-            Debug.Log(stageID + " TryGetStuff: " + typeID + " " + isPicked);
-            return stuffIsPick.TryGetValue(typeID, out isPicked);
+            bool hasStuff = stuffIsPick.ContainsKey(typeID);
+
+            if (hasStuff)
+            {
+                stuffIsPick.TryGetValue(typeID, out isPicked);
+                Debug.Log(stageID + " TryGetStuff: " + typeID + " " + isPicked);
+                return stuffIsPick.TryGetValue(typeID, out isPicked);
+            }
+            isPicked = false;
+            Debug.Log("DontHasStuff: " + typeID);
+            return false;
         }
 
         public bool TryGetInteraction(int typeID, out int times)
         {
-            interactionTimes.TryGetValue(typeID, out times);
-            Debug.Log(stageID + " TryGetInteraction: " + typeID + " " + times);
-            return interactionTimes.TryGetValue(typeID, out times);
+            bool hasInteraction = interactionTimes.ContainsKey(typeID);
+
+            if (hasInteraction)
+            {
+                interactionTimes.TryGetValue(typeID, out times);
+                Debug.Log(stageID + " TryGetInteraction: " + typeID + " " + times);
+                return interactionTimes.TryGetValue(typeID, out times);
+            }
+            times = 0;
+            Debug.Log("DontHasInteraction: " + typeID);
+            return false;
         }
 
         public void Clear()

@@ -59,13 +59,10 @@ namespace GB
             {
                 StuffEntity stuff = stuffs[i];
 
-                if (oldStage.interactionTimes != null) // 调entity了, 先这样写
+                bool hasStuff = StageDomain.TryGetStuff(oldStage, stuffs[i].typeID, out bool isPicked);
+                if (hasStuff)
                 {
-                    bool hasStuff = StageDomain.TryGetStuff(oldStage, stuffs[i].typeID, out bool isPicked);
-                    if (hasStuff)
-                    {
-                        StageDomain.RemoveStuff(oldStage, stuff);
-                    }
+                    StageDomain.RemoveStuff(oldStage, stuff);
                 }
                 StageDomain.AddStuff(oldStage, stuff);
             }
@@ -75,13 +72,10 @@ namespace GB
             {
                 InteractionEntity interaction = interactions[i];
 
-                if (oldStage.interactionTimes != null) // TODO: 改
+                bool hasInteraction = StageDomain.TryGetInteraction(oldStage, interactions[i].typeID, out int times);
+                if (hasInteraction)
                 {
-                    bool hasInteraction = StageDomain.TryGetInteraction(oldStage, interactions[i].typeID, out int times);
-                    if (hasInteraction)
-                    {
-                        StageDomain.RemoveInteraction(oldStage, interaction);
-                    }
+                    StageDomain.RemoveInteraction(oldStage, interaction);
                 }
                 StageDomain.AddInteraction(oldStage, interaction);
             }
@@ -92,6 +86,10 @@ namespace GB
 
             // 切换场景后逻辑
             var stage = ctx.Get_Stage();
+            if (stage == null)
+            {
+                stage = StageDomain.Spawn(ctx, stageID);
+            }
 
             bool has = ctx.templateCore.TryGetStage(stageID, out StageTM tm);
 
@@ -101,10 +99,10 @@ namespace GB
             {
                 StuffSpawnTM spawnTM = tm.stuffSpawns[i];
 
-                if (stage.stuffIsPick != null) // TODO: 改
-                {
-                    bool hasStuff = StageDomain.TryGetStuff(stage, spawnTM.so.tm.typeID, out bool isPicked);
+                bool hasStuff = StageDomain.TryGetStuff(stage, spawnTM.so.tm.typeID, out bool isPicked);
                     
+                if (hasStuff)
+                {
                     if (spawnTM.so.tm.spawnStageID == game.mapID && !isPicked)
                     {
                         StuffDomain.SpawnBySpawn(ctx, spawnTM.so.tm.typeID, spawnTM);
@@ -128,9 +126,9 @@ namespace GB
                     if (spawnTM.so.tm.spawnStageID == game.mapID)
                     {
                         InteractionEntity interaction = InteractionDomain.SpawnBySpawn(ctx, spawnTM.so.tm.typeID, spawnTM);
-                        if (stage.interactionTimes != null) // TODO: 改
+                        bool hasInteraction = StageDomain.TryGetInteraction(stage, interaction.typeID, out int times);
+                        if (hasInteraction)
                         {
-                            StageDomain.TryGetInteraction(stage, interaction.typeID, out int times);
                             interaction.times = times;
                         }
                     }
