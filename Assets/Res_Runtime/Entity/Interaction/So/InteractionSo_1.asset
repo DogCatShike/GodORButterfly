@@ -17,4 +17,4 @@ MonoBehaviour:
     typeName: Wells
     spawnStageID: 12
     stuffTypeID: 1
-    isVictory: 1
+    isVictory: 0

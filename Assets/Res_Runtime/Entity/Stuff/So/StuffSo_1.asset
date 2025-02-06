@@ -16,6 +16,9 @@ MonoBehaviour:
     typeName: Shovel
     typeID: 1
     spawnStageID: 11
-    isPick: 1
     sprite: {fileID: 21300000, guid: b40fb60095c246b479d5d9bbe7c2204c, type: 3}
     description: "\u4E00\u628A\u94F2\u5B50"
+    spawnTM:
+      so: {fileID: 11400000, guid: ad4948e529592d24889e09fc826d6fb8, type: 2}
+      position: {x: 5, y: -2, z: 0}
+      rotation: {x: 0, y: 0, z: 0}

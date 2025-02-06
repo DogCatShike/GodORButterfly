@@ -85,10 +85,14 @@ namespace GB {
             // 使用物品
             // TODO：根据物品类型，执行不同的逻辑
             Debug.Log("使用物品  ");
+            if (item.spawnTM != null)
+            {
+                StuffDomain.SpawnBySpawn(ctx, 0, item.spawnTM); // typeID可以删掉
+            }
+
             interaction.times -= 1;
             owner.BagCom.Remove(id);
             Update(ctx, owner.BagCom);
-
         }
 
         // 拾取物品
@@ -107,6 +111,10 @@ namespace GB {
                 item.count = stuff.count;
                 item.icon = stuff.icon;
                 item.description = stuff.description;
+                if (stuff.spawnTM.so != null)
+                {
+                    item.spawnTM = stuff.spawnTM;
+                }
                 return item;
             });
 

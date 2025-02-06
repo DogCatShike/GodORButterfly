@@ -13,6 +13,6 @@ namespace GB {
 
         public string description;
 
-
+        public StuffSpawnTM spawnTM;
     }
 }

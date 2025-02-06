@@ -13,5 +13,7 @@ namespace GB
         
         public Sprite sprite;
         public string description;
+
+        public StuffSpawnTM spawnTM; // 生成物品(不该这么调)
     }
 }

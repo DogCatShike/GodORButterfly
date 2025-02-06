@@ -14,6 +14,8 @@ namespace GB {
         public Sprite icon;
         public string description;
 
+        public StuffSpawnTM spawnTM;
+
         public void Ctor() {
             iconRenderer.sprite = icon;
         }

@@ -55,11 +55,17 @@ namespace GB {
                 go.name = n;
             }
 
-            stuff.idSig = ctx.gameEntity.stuffID++;
+            // stuff.idSig = ctx.gameEntity.stuffID++;
+            stuff.idSig = tm.typeID;
             stuff.typeID = tm.typeID;
             stuff.description = tm.description;
 
             stuff.icon = tm.sprite;
+            
+            if (tm.spawnTM.so != null)
+            {
+                stuff.spawnTM = tm.spawnTM;
+            }
 
             stuff.Ctor();
 
